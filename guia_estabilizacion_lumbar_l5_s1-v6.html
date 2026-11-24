@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Privacidad y Seguridad -->
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; media-src 'self' https: data: blob:; connect-src 'self' blob:; form-action 'none'; base-uri 'none';" />
+  <title>El Jardín de los Dioses · Santuario de Estabilización Lumbar L5–S1</title>
+  <style>
+    :root {
+      --bg: #050a08;
+      --bg-marble: rgba(12, 22, 18, 0.78);
+      --surface: rgba(14, 26, 21, 0.72);
+      --surface-alt: rgba(20, 36, 29, 0.65);
+      --gold: #eab308;
+      --gold-light: #fde047;
+      --gold-amber: #d97706;
+      --gold-glow: rgba(234, 179, 8, 0.32);
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --emerald-glow: rgba(16, 185, 129, 0.28);
+      --celestial: #38bdf8;
+      --warn-bg: rgba(217, 119, 6, 0.14);
+      --warn-border: #eab308;
+      --warn-text: #fef08a;
+      --text: #f8fafc;
+      --muted: #a7b8b0;
+      --border: rgba(234, 179, 8, 0.20);
+      --border-bright: rgba(253, 224, 71, 0.48);
+      --radius: 20px;
+      --shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.62;
+      padding-bottom: 115px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .serif-title {
+      font-family: Georgia, "Times New Roman", Palatino, serif;
+      letter-spacing: 0.02em;
+    }
+
+    /* Fondo Olímpico / Jardín de los Dioses: Nebulosa Esmeralda, Rayos Dorados y Polvo de Luz */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% -10%, rgba(234, 179, 8, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 40%, rgba(16, 185, 129, 0.16) 0%, transparent 60%),
+        radial-gradient(ellipse at 85% 75%, rgba(217, 119, 6, 0.14) 0%, transparent 60%),
+        linear-gradient(180deg, #07110d 0%, #050a08 55%, #080d0b 100%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.45;
+      animation: floatOrb 20s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.55), transparent 70%);
+      top: -140px; left: -120px;
+    }
+
+    .orb-2 {
+      width: 540px; height: 540px;
+      background: radial-gradient(circle, rgba(234, 179, 8, 0.42), transparent 70%);
+      top: 18%; right: -180px;
+      animation-delay: -7s;
+      animation-duration: 24s;
+    }
+
+    .orb-3 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, rgba(5, 150, 105, 0.45), transparent 70%);
+      bottom: -120px; left: 18%;
+      animation-delay: -13s;
+      animation-duration: 27s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(45px, -35px) scale(1.08); }
+      100% { transform: translate(-30px, 40px) scale(0.95); }
+    }
+
+    /* Partículas flotantes (luciérnagas doradas del Jardín) */
+    .fireflies-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Barra superior dorada de lectura */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--emerald), var(--gold), var(--gold-light));
+      z-index: 1000;
+      box-shadow: 0 0 14px var(--gold-glow);
+      transition: width 0.1s linear;
+    }
+
+    header {
+      position: relative;
+      padding: 50px 20px 38px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(12, 24, 19, 0.88) 0%, rgba(5, 10, 8, 0.45) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .laurel-crown {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(16, 185, 129, 0.15));
+      border: 1px solid rgba(234, 179, 8, 0.42);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      box-shadow: 0 0 24px rgba(234, 179, 8, 0.18);
+    }
+
+    .pulse-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.75);
+      animation: pulseRing 2.2s infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.75); }
+      70% { box-shadow: 0 0 0 9px rgba(253, 224, 71, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(253, 224, 71, 0); }
+    }
+
+    header h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.95rem, 4.8vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #fef08a 48%, #6ee7b7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 8px 30px rgba(234, 179, 8, 0.15);
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 26px 16px;
+    }
+
+    /* Tarjetas de Mármol Esmeralda y Borde Dorado */
+    .glass-card {
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(234, 179, 8, 0.11), transparent 48%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover::before { opacity: 1; }
+    .glass-card:hover {
+      border-color: var(--border-bright);
+      box-shadow: 0 18px 52px rgba(234, 179, 8, 0.12), 0 0 24px rgba(16, 185, 129, 0.12);
+    }
+
+    /* Cascada de aparición al scrollear */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .alert-box {
+      background: var(--warn-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      border-left: 4px solid var(--gold);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+      color: var(--warn-text);
+      font-size: 0.93rem;
+    }
+
+    .alert-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+      color: var(--gold-light);
+      font-family: Georgia, serif;
+    }
+
+    .tools-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 680px) {
+      .tools-bar { grid-template-columns: 1fr; }
+    }
+
+    .tool-card {
+      padding: 18px 20px;
+    }
+
+    .tool-title {
+      font-size: 0.79rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Reloj Solar / Cronómetro Circular SVG */
+    .timer-layout {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .timer-ring-wrap {
+      position: relative;
+      width: 86px;
+      height: 86px;
+      flex-shrink: 0;
+    }
+
+    .timer-ring-svg {
+      transform: rotate(-90deg);
+      width: 86px;
+      height: 86px;
+    }
+
+    .timer-ring-bg {
+      fill: none;
+      stroke: rgba(234, 179, 8, 0.16);
+      stroke-width: 6;
+    }
+
+    .timer-ring-progress {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 226.2;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.9s linear, stroke 0.3s ease;
+      filter: drop-shadow(0 0 8px var(--gold-glow));
+    }
+
+    .timer-display {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+    }
+
+    .timer-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: scale(0.96); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-amber), var(--gold));
+      color: #140d02;
+      font-weight: 800;
+      box-shadow: 0 4px 18px var(--gold-glow);
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, #059669, var(--emerald));
+      color: #021a12;
+      font-weight: 800;
+      box-shadow: 0 4px 18px var(--emerald-glow);
+    }
+
+    .btn-ghost {
+      background: rgba(20, 36, 29, 0.8);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover {
+      background: rgba(30, 52, 42, 0.95);
+      border-color: var(--gold);
+    }
+
+    .btn-pill {
+      padding: 5px 11px;
+      font-size: 0.79rem;
+      border-radius: 999px;
+    }
+    .btn-pill.active {
+      background: linear-gradient(135deg, var(--gold-amber), var(--gold));
+      color: #140d02;
+      border-color: var(--gold);
+      font-weight: 800;
+      box-shadow: 0 0 14px var(--gold-glow);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 11px;
+      background: rgba(5, 10, 8, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 14px 0 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--emerald), var(--gold));
+      box-shadow: 0 0 14px var(--gold-glow);
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .progress-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Reproductor del Santuario */
+    .audio-panel {
+      padding: 20px;
+      margin-bottom: 22px;
+    }
+
+    .audio-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      .audio-grid { grid-template-columns: 1fr; }
+    }
+
+    .now-playing {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .visualizer-canvas {
+      width: 100%;
+      height: 46px;
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background: rgba(5, 10, 8, 0.65);
+      border: 1px solid rgba(234, 179, 8, 0.18);
+    }
+
+    .track-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+      word-break: break-word;
+    }
+
+    .track-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .seek-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .seek-row input[type="range"], .vol-row input[type="range"] {
+      flex: 1;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .player-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .player-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .vol-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      min-width: 135px;
+    }
+
+    .playlist {
+      list-style: none;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      max-height: 220px;
+      overflow-y: auto;
+      background: rgba(5, 10, 8, 0.7);
+    }
+
+    .playlist-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 13px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .playlist-item:last-child { border-bottom: none; }
+    .playlist-item:hover { background: rgba(234, 179, 8, 0.08); padding-left: 16px; }
+    .playlist-item.active {
+      background: linear-gradient(90deg, rgba(234, 179, 8, 0.2), rgba(16, 185, 129, 0.1));
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .playlist-item-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .playlist-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .playlist-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(234, 179, 8, 0.12);
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    .del-track-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .del-track-btn:hover { background: rgba(239, 68, 68, 0.25); color: #fca5a5; }
+
+    .synth-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px;
+    }
+
+    .synth-box p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .synth-modes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .synth-btn {
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(10, 19, 15, 0.85);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .synth-btn:hover { border-color: var(--gold); transform: translateX(3px); }
+    .synth-btn.active {
+      background: linear-gradient(135deg, #059669, var(--emerald));
+      color: #021a12;
+      border-color: var(--emerald);
+      font-weight: 800;
+      box-shadow: 0 0 18px var(--emerald-glow);
+    }
+    .synth-btn span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0.88;
+    }
+
+    /* Estudio de Sonido Curativo */
+    .studio-panel {
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .studio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .studio-rules-badge {
+      font-size: 0.75rem;
+      background: rgba(16, 185, 129, 0.14);
+      color: var(--emerald-light);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .studio-controls-top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 15px;
+    }
+
+    .studio-param label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .studio-param input[type="range"], .studio-param select {
+      width: 100%;
+      accent-color: var(--gold);
+    }
+
+    .studio-param select {
+      padding: 7px 9px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #0a1410;
+      color: var(--text);
+      font-size: 0.84rem;
+    }
+
+    .rhythm-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .rhythm-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(10, 19, 15, 0.85);
+      color: var(--text);
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .rhythm-btn:hover { border-color: var(--gold); }
+    .rhythm-btn.active {
+      background: linear-gradient(135deg, var(--gold-amber), var(--gold));
+      color: #140d02;
+      border-color: var(--gold);
+      font-weight: 800;
+      box-shadow: 0 0 16px var(--gold-glow);
+    }
+
+    .inst-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .inst-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(10, 19, 15, 0.72);
+      transition: all 0.2s ease;
+    }
+
+    .inst-card.active {
+      border-color: rgba(234, 179, 8, 0.5);
+      background: rgba(234, 179, 8, 0.08);
+      box-shadow: 0 4px 18px rgba(234, 179, 8, 0.12);
+    }
+
+    .inst-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .inst-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .inst-toggle input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .inst-desc {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .inst-vol {
+      width: 100%;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .studio-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .studio-prompt-box {
+      background: rgba(5, 10, 8, 0.75);
+      border: 1px dashed rgba(234, 179, 8, 0.35);
+      border-radius: 12px;
+      padding: 13px 15px;
+    }
+
+    .studio-prompt-box label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .studio-prompt-text {
+      width: 100%;
+      min-height: 92px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 0.83rem;
+      color: var(--text);
+      background: rgba(10, 19, 15, 0.92);
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .gif-tip {
+      background: rgba(16, 185, 129, 0.09);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: #d1fae5;
+    }
+
+    .gif-tip code {
+      background: rgba(5, 10, 8, 0.85);
+      color: var(--gold-light);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.83rem;
+    }
+
+    .section-heading {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.38rem;
+      font-weight: 700;
+      color: #fef9c3;
+      margin: 34px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-heading::before {
+      content: "✦";
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    .exercise-card {
+      margin-bottom: 24px;
+    }
+
+    .exercise-card.completed-card {
+      border-color: rgba(16, 185, 129, 0.55);
+    }
+
+    .card-header {
+      padding: 16px 20px;
+      background: rgba(20, 36, 29, 0.55);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .ex-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-amber), var(--gold));
+      color: #140d02;
+      font-family: Georgia, serif;
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 16px var(--gold-glow);
+    }
+
+    .card-header h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.18rem;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .card-subtitle {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      background: rgba(10, 19, 15, 0.85);
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .check-label:hover { border-color: var(--gold); }
+
+    .check-label input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--emerald);
+      cursor: pointer;
+    }
+
+    .media-wrap {
+      position: relative;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 14px 16px 12px;
+    }
+
+    .media-wrap img {
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .media-bar {
+      max-width: 680px;
+      margin: 10px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #334155;
+    }
+
+    .media-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .dot.gif-active {
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    }
+
+    .media-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .file-input { display: none; }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 680px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    .steps h3, .keys h3 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-light);
+      margin-bottom: 9px;
+    }
+
+    .steps ol {
+      padding-left: 18px;
+      font-size: 0.94rem;
+      color: #e2e8f0;
+    }
+
+    .steps li {
+      margin-bottom: 7px;
+    }
+
+    .keys-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.89rem;
+      color: #cbd5e1;
+    }
+
+    .keys-box ul {
+      padding-left: 17px;
+      margin-top: 6px;
+    }
+
+    .keys-box li {
+      margin-bottom: 6px;
+    }
+
+    .dose-tag {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(234, 179, 8, 0.14);
+      border: 1px solid rgba(234, 179, 8, 0.36);
+      border-radius: 8px;
+      padding: 6px 11px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+    }
+
+    th, td {
+      padding: 13px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(20, 36, 29, 0.9);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(234, 179, 8, 0.05); }
+
+    .habits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .habit-card {
+      padding: 18px;
+    }
+
+    .habit-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .habit-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 30px;
+      padding: 0 16px;
+    }
+
+    /* Dock Flotante Olímpico */
+    .floating-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 900;
+      background: rgba(10, 19, 15, 0.90);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-bright);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 22px rgba(234, 179, 8, 0.18);
+      border-radius: 999px;
+      padding: 7px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: calc(100vw - 24px);
+    }
+
+    .dock-timer {
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      min-width: 44px;
+      text-align: center;
+    }
+
+    .dock-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border);
+    }
+
+    .dock-track {
+      font-size: 0.8rem;
+      color: var(--text);
+      max-width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 480px) {
+      .dock-track { max-width: 105px; }
+    }
+
+    @media print {
+      .ambient-bg, .fireflies-canvas, .scroll-progress, .floating-dock, .tools-bar, .audio-panel, .studio-panel, .gif-tip, .media-bar, .check-label { display: none !important; }
+      body { background: #fff; color: #000; padding-bottom: 0; }
+      .glass-card { background: #fff; border: 1px solid #ccc; box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <canvas id="firefliesCanvas" class="fireflies-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header>
+    <div class="header-inner">
+      <span class="laurel-crown"><span class="pulse-dot"></span> El Jardín de los Dioses · Santuario de Restauración L5–S1</span>
+      <h1>Templo de Estabilización Lumbar</h1>
+      <p>Protocolo sagrado de fortalecimiento del core profundo (McGill Big 3 + descarga 90–90) y armonía acústica para proteger el segmento L4–L5.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="alert-box reveal">
+      <strong>✦ Ley del Santuario antes de iniciar</strong>
+      No realices los ejercicios de fuerza durante una crisis aguda de ciática ni con dolor eléctrico al toser o estornudar. En fase aguda habitá únicamente la <b>Posición de Descarga 90–90</b> acompañada de armonía suave a volumen bajo. Al ceder la molestia, iniciá de forma gradual: ningún movimiento debe provocar puntadas, hormigueo ni dolor irradiado.
+    </div>
+
+    <!-- Herramientas Interactivas -->
+    <section class="tools-bar">
+      <div class="tool-card glass-card reveal">
+        <div class="tool-title">
+          <span>Reloj Solar Isométrico</span>
+          <label style="font-weight:500; text-transform:none; cursor:pointer; color:var(--text);">
+            <input type="checkbox" id="soundToggle" checked style="accent-color:#eab308;" /> Campana
+          </label>
+        </div>
+        <div class="timer-layout">
+          <div class="timer-ring-wrap">
+            <svg class="timer-ring-svg" viewBox="0 0 84 84">
+              <circle class="timer-ring-bg" cx="42" cy="42" r="36"></circle>
+              <circle class="timer-ring-progress" id="timerRing" cx="42" cy="42" r="36"></circle>
+            </svg>
+            <div class="timer-display" id="timerDisplay">10s</div>
+          </div>
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="startBtn" type="button">Iniciar</button>
+            <button class="btn btn-ghost" id="resetBtn" type="button">Reiniciar</button>
+            <button class="btn btn-ghost btn-pill" data-sec="8" type="button">8s</button>
+            <button class="btn btn-ghost btn-pill active" data-sec="10" type="button">10s</button>
+            <button class="btn btn-ghost btn-pill" data-sec="15" type="button">15s</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card glass-card reveal">
+        <div class="tool-title">
+          <span>Ofrenda de la Sesión de Hoy</span>
+          <button class="btn btn-ghost btn-pill" id="clearProgressBtn" type="button">Limpiar</button>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progressText">0 de 4 bloques completados</span>
+          <span id="progressPct" style="font-weight:800; color:var(--gold-light);">0%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reproductor de Audio Terapéutico -->
+    <section class="audio-panel glass-card reveal" aria-label="Reproductor de audio terapéutico">
+      <div class="tool-title">
+        <span>Arpa del Jardín · Reproductor Terapéutico (Volumen bajo)</span>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input type="file" id="audioUploadInput" accept="audio/*" multiple class="file-input" />
+          <button class="btn btn-accent btn-pill" id="addTracksBtn" type="button">+ Agregar temas (.mp3 / .wav)</button>
+        </div>
+      </div>
+
+      <div class="audio-grid">
+        <div>
+          <div class="now-playing">
+            <canvas id="visualizerCanvas" class="visualizer-canvas" width="480" height="46"></canvas>
+            <div class="track-name" id="currentTrackTitle">Sin tema seleccionado</div>
+            <div class="track-sub" id="currentTrackMeta">Seleccioná un tema de la lista o cargá tus archivos</div>
+            <div class="seek-row">
+              <span id="timeCurrent">0:00</span>
+              <input type="range" id="seekBar" min="0" max="100" value="0" step="0.1" aria-label="Progreso del audio" />
+              <span id="timeTotal">0:00</span>
+            </div>
+            <div class="player-controls">
+              <div class="player-btns">
+                <button class="btn btn-ghost btn-pill" id="prevTrackBtn" type="button" title="Tema anterior">⏮</button>
+                <button class="btn btn-primary btn-pill" id="playPauseBtn" type="button">▶ Reproducir</button>
+                <button class="btn btn-ghost btn-pill" id="nextTrackBtn" type="button" title="Siguiente tema">⏭</button>
+                <button class="btn btn-ghost btn-pill active" id="loopTrackBtn" type="button" title="Repetir tema en bucle">🔁 Bucle</button>
+              </div>
+              <div class="vol-row">
+                <span>Vol</span>
+                <input type="range" id="playerVol" min="0" max="1" step="0.02" value="0.35" aria-label="Volumen del reproductor" />
+                <span id="playerVolLabel">35%</span>
+              </div>
+            </div>
+            <audio id="audioEl" preload="metadata"></audio>
+          </div>
+
+          <ul class="playlist" id="playlistEl"></ul>
+        </div>
+
+        <div class="synth-box">
+          <div class="tool-title" style="margin-bottom:6px;">
+            <span>Frecuencias Celestiales (Sin archivos)</span>
+          </div>
+          <p>Sintetizadas al instante. Usá auriculares estéreo a volumen bajo para los pulsos binaurales.</p>
+          <div class="synth-modes">
+            <button class="synth-btn" data-synth="alpha" type="button">
+              Binaural Alfa (10 Hz)
+              <span>Dolor agudo</span>
+            </button>
+            <button class="synth-btn" data-synth="theta" type="button">
+              Binaural Theta (6 Hz)
+              <span>Relajación 90–90</span>
+            </button>
+            <button class="synth-btn" data-synth="pink" type="button">
+              Brisa Rosa del Bosque
+              <span>Calma nerviosa</span>
+            </button>
+          </div>
+          <div class="vol-row" style="width:100%;">
+            <span>Vol sonido</span>
+            <input type="range" id="synthVol" min="0" max="0.35" step="0.01" value="0.12" aria-label="Volumen del generador de sonido" />
+            <button class="btn btn-ghost btn-pill" id="stopSynthBtn" type="button">Detener</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estudio de Sonido Curativo -->
+    <section class="studio-panel glass-card reveal" aria-label="Estudio de sonido curativo">
+      <div class="studio-header">
+        <div>
+          <div class="tool-title" style="margin-bottom:2px;">
+            <span>Taller Acústico de los Dioses · Creá tu propia mezcla</span>
+          </div>
+          <div style="font-size:0.84rem; color:var(--muted);">Combiná ritmos e instrumentos en vivo (100% offline) o copiá el prompt para generar un tema de estudio.</div>
+        </div>
+        <span class="studio-rules-badge">Armonía segura: 60–90 BPM · Percusión filtrada · Volumen suave</span>
+      </div>
+
+      <div class="studio-controls-top">
+        <div class="studio-param">
+          <label for="studioBpm"><span>Tempo (cadencia segura)</span><span id="studioBpmVal">80 BPM</span></label>
+          <input type="range" id="studioBpm" min="60" max="90" step="2" value="80" />
+        </div>
+        <div class="studio-param">
+          <label for="studioWarmth"><span>Suavidad (filtro pasa-bajos)</span><span id="studioWarmthVal">Cálido (850 Hz)</span></label>
+          <input type="range" id="studioWarmth" min="400" max="1500" step="50" value="850" />
+        </div>
+        <div class="studio-param">
+          <label for="studioScale"><span>Clima armónico</span></label>
+          <select id="studioScale">
+            <option value="warm">Jardín Dorado (Pentatónica Mayor)</option>
+            <option value="calm">Noche en el Olimpo (Menor Suave)</option>
+            <option value="float">Nubes Etéreas (Acordes Sus2)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:7px;">
+        1. Elegí la base rítmica (redondeada, sin sobresaltos)
+      </div>
+      <div class="rhythm-pills" id="rhythmPills">
+        <button type="button" class="rhythm-btn" data-rhythm="none">Sin ritmo (Ambient puro)</button>
+        <button type="button" class="rhythm-btn active" data-rhythm="cumbia">Cumbia rebajada</button>
+        <button type="button" class="rhythm-btn" data-rhythm="dembow">Reggaetón Lo-Fi (Dembow)</button>
+        <button type="button" class="rhythm-btn" data-rhythm="salsa">Salsa Chill / Bolero-Son</button>
+      </div>
+
+      <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:7px;">
+        2. Sumá y balanceá los instrumentos
+      </div>
+      <div class="inst-grid" id="instGrid">
+        <div class="inst-card active" data-inst="pad">
+          <div class="inst-top">
+            <label class="inst-toggle"><input type="checkbox" checked data-inst-check="pad" /> Pad analógico cálido</label>
+          </div>
+          <div class="inst-desc">Cama armónica continua (base obligatoria de calma)</div>
+          <input type="range" class="inst-vol" data-inst-vol="pad" min="0" max="1" step="0.05" value="0.65" aria-label="Volumen pad" />
+        </div>
+
+        <div class="inst-card active" data-inst="sub">
+          <div class="inst-top">
+            <label class="inst-toggle"><input type="checkbox" checked data-inst-check="sub" /> Sub-grave profundo</label>
+          </div>
+          <div class="inst-desc">Anclaje somático grave y redondo</div>
+          <input type="range" class="inst-vol" data-inst-vol="sub" min="0" max="1" step="0.05" value="0.60" aria-label="Volumen sub-grave" />
+        </div>
+
+        <div class="inst-card active" data-inst="rhodes">
+          <div class="inst-top">
+            <label class="inst-toggle"><input type="checkbox" checked data-inst-check="rhodes" /> Piano Rhodes suave</label>
+          </div>
+          <div class="inst-desc">Acordes cálidos y espaciados</div>
+          <input type="range" class="inst-vol" data-inst-vol="rhodes" min="0" max="1" step="0.05" value="0.55" aria-label="Volumen Rhodes" />
+        </div>
+
+        <div class="inst-card" data-inst="nylon">
+          <div class="inst-top">
+            <label class="inst-toggle"><input type="checkbox" data-inst-check="nylon" /> Lira / Guitarra de nylon</label>
+          </div>
+          <div class="inst-desc">Arpegios orgánicos con toque blando</div>
+          <input type="range" class="inst-vol" data-inst-vol="nylon" min="0" max="1" step="0.05" value="0.55" aria-label="Volumen guitarra nylon" />
+        </div>
+
+        <div class="inst-card" data-inst="flute">
+          <div class="inst-top">
+            <label class="inst-toggle"><input type="checkbox" data-inst-check="flute" /> Flauta de Pan / Brisa</label>
+          </div>
+          <div class="inst-desc">Melodía lenta en registro grave-medio</div>
+          <input type="range" class="inst-vol" data-inst-vol="flute" min="0" max="1" step="0.05" value="0.45" aria-label="Volumen flauta" />
+        </div>
+
+        <div class="inst-card" data-inst="rain">
+          <div class="inst-top">
+            <label class="inst-toggle"><input type="checkbox" data-inst-check="rain" /> Lluvia en el Jardín</label>
+          </div>
+          <div class="inst-desc">Manto suave de fondo para soltar tensión</div>
+          <input type="range" class="inst-vol" data-inst-vol="rain" min="0" max="1" step="0.05" value="0.35" aria-label="Volumen lluvia" />
+        </div>
+      </div>
+
+      <div class="studio-actions">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <button type="button" class="btn btn-primary" id="studioPlayBtn">▶ Tocar mezcla en vivo</button>
+          <button type="button" class="btn btn-ghost" id="studioStopBtn">■ Detener</button>
+        </div>
+        <div class="vol-row" style="min-width:170px;">
+          <span>Vol mezcla</span>
+          <input type="range" id="studioMasterVol" min="0.05" max="0.55" step="0.02" value="0.28" aria-label="Volumen general del estudio" />
+          <span id="studioMasterVolVal">50%</span>
+        </div>
+      </div>
+
+      <div class="studio-prompt-box">
+        <label for="studioPromptText">
+          <span>Prompt terapéutico generado con tu combinación</span>
+          <button type="button" class="btn btn-accent btn-pill" id="copyPromptBtn">Copiar prompt</button>
+        </label>
+        <textarea id="studioPromptText" class="studio-prompt-text" readonly></textarea>
+      </div>
+    </section>
+
+    <div class="gif-tip reveal">
+      <b>Archivos en GitHub:</b> Asegurate de tener los 4 GIFs en la raíz (<code>descarga_90_90.gif</code>, <code>abdominal_modificado.gif</code>, <code>plancha_lateral.gif</code>, <code>perro_pajaro.gif</code>) y los 5 audios dentro de la carpeta <code>audio/</code>. También podés cargar temas desde tu celular con el botón <b>"+ Agregar temas"</b>.
+    </div>
+
+    <h2 class="section-heading reveal">Bloque 0 · Alivio y Descompresión</h2>
+
+    <!-- Exercise 1: Psoas 90-90 -->
+    <article class="exercise-card glass-card reveal" data-card-id="ex1">
+      <div class="card-header">
+        <div class="card-title-group">
+          <div class="ex-num">1</div>
+          <div>
+            <h2>Posición de Descarga 90–90 (Psoas)</h2>
+            <div class="card-subtitle">Descompresión lumbar y relajación de espasmos defensivos</div>
+          </div>
+        </div>
+        <label class="check-label">
+          <input type="checkbox" class="session-check" data-id="ex1" /> Completado
+        </label>
+      </div>
+      <div class="media-wrap">
+        <img id="img-psoas" src="descarga_90_90.gif" alt="Posición de descarga lumbar 90-90 con pantorrillas sobre una silla" />
+        <div class="media-bar">
+          <span class="media-status" id="status-psoas"><span class="dot"></span><span class="status-label">Cargando imagen...</span></span>
+          <div class="media-actions">
+            <input type="file" accept="image/gif,image/webp,image/*" class="file-input" id="file-psoas" data-key="psoas" />
+            <button class="btn btn-accent btn-pill" data-upload-for="psoas" type="button">Cargar GIF</button>
+            <button class="btn btn-ghost btn-pill" id="reset-psoas" data-reset-for="psoas" style="display:none;" type="button">Restaurar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-grid">
+          <div class="steps">
+            <h3>Paso a paso</h3>
+            <ol>
+              <li>Acostate boca arriba sobre una colchoneta firme o manta en el piso.</li>
+              <li>Apoyá ambas pantorrillas sobre el asiento de una silla firme o sillón bajo, formando un ángulo aproximado de 90° en caderas y rodillas.</li>
+              <li>Dejá los brazos relajados a los costados con las palmas hacia arriba y respirá lento hacia el abdomen.</li>
+              <li>Para levantarte, rodá primero de costado y empujate con los brazos sin hacer fuerza abdominal brusca.</li>
+            </ol>
+          </div>
+          <div class="keys">
+            <h3>Claves para cuidar L4–L5</h3>
+            <div class="keys-box">
+              <ul>
+                <li>Quita la tensión del psoas y reduce al mínimo la presión intradiscal.</li>
+                <li>Ideal al final de la jornada laboral o tras varias horas sentado.</li>
+                <li>Es el único bloque seguro incluso durante días de molestia aguda.</li>
+              </ul>
+              <span class="dose-tag">Dosis: 5 a 10 minutos · respiración nasal lenta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <h2 class="section-heading reveal">Bloque Principal · Estabilización del Core (McGill Big 3)</h2>
+
+    <!-- Exercise 2: Curl-Up -->
+    <article class="exercise-card glass-card reveal" data-card-id="ex2">
+      <div class="card-header">
+        <div class="card-title-group">
+          <div class="ex-num">2</div>
+          <div>
+            <h2>Abdominal Modificado (McGill Curl-Up)</h2>
+            <div class="card-subtitle">Activa la pared abdominal anterior manteniendo la zona lumbar neutra</div>
+          </div>
+        </div>
+        <label class="check-label">
+          <input type="checkbox" class="session-check" data-id="ex2" /> Completado
+        </label>
+      </div>
+      <div class="media-wrap">
+        <img id="img-curlup" src="abdominal_modificado.gif" alt="Abdominal modificado de McGill" />
+        <div class="media-bar">
+          <span class="media-status" id="status-curlup"><span class="dot"></span><span class="status-label">Cargando imagen...</span></span>
+          <div class="media-actions">
+            <input type="file" accept="image/gif,image/webp,image/*" class="file-input" id="file-curlup" data-key="curlup" />
+            <button class="btn btn-accent btn-pill" data-upload-for="curlup" type="button">Cargar GIF</button>
+            <button class="btn btn-ghost btn-pill" id="reset-curlup" data-reset-for="curlup" style="display:none;" type="button">Restaurar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-grid">
+          <div class="steps">
+            <h3>Paso a paso</h3>
+            <ol>
+              <li>Acostate boca arriba con <b>una pierna estirada</b> y la <b>otra rodilla flexionada</b> con el pie apoyado.</li>
+              <li>Colocá ambas manos planas debajo del arco natural de tu zona lumbar para evitar que la espalda se aplane.</li>
+              <li>Despegá apenas los codos del piso y activá suavemente el abdomen (como si te prepararas para recibir un golpecito).</li>
+              <li>Levantá la cabeza y la parte superior de los omóplatos solo unos pocos centímetros en bloque, sin llevar el mentón al pecho.</li>
+              <li>Mantené <b>10 segundos</b> respirando corto y bajá controlado. Alterná la pierna flexionada a mitad de serie.</li>
+            </ol>
+          </div>
+          <div class="keys">
+            <h3>Claves para cuidar L4–L5</h3>
+            <div class="keys-box">
+              <ul>
+                <li><b>No hagas un abdominal clásico:</b> el movimiento es mínimo, la espalda baja no se dobla.</li>
+                <li>Si te molesta el cuello, apoyá la lengua contra el paladar detrás de los dientes superiores.</li>
+                <li>Exhalá suavemente sin aguantar la respiración (evitá maniobra de Valsalva).</li>
+              </ul>
+              <span class="dose-tag">Dosis inicial: 4 – 3 – 2 reps × 10 seg (pausa 20 seg)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Exercise 3: Side Plank -->
+    <article class="exercise-card glass-card reveal" data-card-id="ex3">
+      <div class="card-header">
+        <div class="card-title-group">
+          <div class="ex-num">3</div>
+          <div>
+            <h2>Plancha Lateral de Rodillas</h2>
+            <div class="card-subtitle">Fortalece oblicuos y cuadrado lumbar sin compresión excesiva</div>
+          </div>
+        </div>
+        <label class="check-label">
+          <input type="checkbox" class="session-check" data-id="ex3" /> Completado
+        </label>
+      </div>
+      <div class="media-wrap">
+        <img id="img-sideplank" src="plancha_lateral.gif" alt="Plancha lateral modificada de rodillas" />
+        <div class="media-bar">
+          <span class="media-status" id="status-sideplank"><span class="dot"></span><span class="status-label">Cargando imagen...</span></span>
+          <div class="media-actions">
+            <input type="file" accept="image/gif,image/webp,image/*" class="file-input" id="file-sideplank" data-key="sideplank" />
+            <button class="btn btn-accent btn-pill" data-upload-for="sideplank" type="button">Cargar GIF</button>
+            <button class="btn btn-ghost btn-pill" id="reset-sideplank" data-reset-for="sideplank" style="display:none;" type="button">Restaurar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-grid">
+          <div class="steps">
+            <h3>Paso a paso</h3>
+            <ol>
+              <li>Acostate de costado apoyando el antebrazo, con el codo exactamente debajo del hombro.</li>
+              <li>Flexioná ambas rodillas a 90° hacia atrás, manteniendo muslos, pelvis y tronco en una misma línea.</li>
+              <li>Apoyá la mano libre sobre el hombro contrario y activá suavemente el abdomen y los glúteos.</li>
+              <li>Empujá la cadera hacia adelante y arriba hasta despegarla del piso formando una línea recta desde las rodillas hasta los hombros.</li>
+              <li>Sostené <b>10 segundos</b>, bajá controlado y repetí de ambos lados.</li>
+            </ol>
+          </div>
+          <div class="keys">
+            <h3>Claves para cuidar L4–L5</h3>
+            <div class="keys-box">
+              <ul>
+                <li>No dejes que la cadera caiga hacia atrás ni que el torso rote hacia el piso.</li>
+                <li>Empujá el piso con el antebrazo para no "colgarte" del hombro.</li>
+                <li>Trabajá siempre ambos lados por igual para equilibrar la pelvis.</li>
+              </ul>
+              <span class="dose-tag">Dosis inicial: 4 – 3 – 2 reps × 10 seg por lado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Exercise 4: Bird-Dog -->
+    <article class="exercise-card glass-card reveal" data-card-id="ex4">
+      <div class="card-header">
+        <div class="card-title-group">
+          <div class="ex-num">4</div>
+          <div>
+            <h2>Perro-Pájaro (Bird-Dog)</h2>
+            <div class="card-subtitle">Estabilidad de espalda baja, glúteos y control antirrotación</div>
+          </div>
+        </div>
+        <label class="check-label">
+          <input type="checkbox" class="session-check" data-id="ex4" /> Completado
+        </label>
+      </div>
+      <div class="media-wrap">
+        <img id="img-birddog" src="perro_pajaro.gif" alt="Ejercicio Perro-Pájaro (Bird-Dog)" />
+        <div class="media-bar">
+          <span class="media-status" id="status-birddog"><span class="dot"></span><span class="status-label">Cargando imagen...</span></span>
+          <div class="media-actions">
+            <input type="file" accept="image/gif,image/webp,image/*" class="file-input" id="file-birddog" data-key="birddog" />
+            <button class="btn btn-accent btn-pill" data-upload-for="birddog" type="button">Cargar GIF</button>
+            <button class="btn btn-ghost btn-pill" id="reset-birddog" data-reset-for="birddog" style="display:none;" type="button">Restaurar</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-grid">
+          <div class="steps">
+            <h3>Paso a paso</h3>
+            <ol>
+              <li>Colocate en cuatro apoyos: manos debajo de los hombros y rodillas debajo de las caderas, con la espalda plana.</li>
+              <li>Activá suavemente el abdomen imaginando que tenés un vaso de agua sobre la espalda baja.</li>
+              <li>Extendé el brazo derecho hacia adelante (puño cerrado suave) y la pierna izquierda hacia atrás empujando con el talón, <b>sin subir la pierna por encima de la línea de la cadera</b>.</li>
+              <li>Sostené <b>10 segundos</b> manteniendo la pelvis completamente nivelada.</li>
+              <li>Volvé despacio a cuatro apoyos y cambiá de lado.</li>
+            </ol>
+          </div>
+          <div class="keys">
+            <h3>Claves para cuidar L4–L5</h3>
+            <div class="keys-box">
+              <ul>
+                <li><b>Error más común:</b> levantar demasiado la pierna y arquear la cintura. Pensá en "alargar", no en "subir".</li>
+                <li>Si cuesta mantener el equilibrio al principio, hacelo deslizando solo una pierna por vez antes de sumar el brazo.</li>
+                <li>Mantené la mirada hacia la colchoneta para no tensar las cervicales.</li>
+              </ul>
+              <span class="dose-tag">Dosis inicial: 4 – 3 – 2 reps × 10 seg alternando lados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <h2 class="section-heading reveal">Progresión Recomendada (Pirámide Invertida)</h2>
+    <div class="table-wrap glass-card reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th>Frecuencia</th>
+            <th>Esquema por ejercicio</th>
+            <th>Duración de cada pausa activa</th>
+            <th>Objetivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Semanas 1 – 2</b></td>
+            <td>4 a 5 días/sem</td>
+            <td>3 – 2 – 1 repeticiones</td>
+            <td>8 a 10 segundos (20 seg pausa entre series)</td>
+            <td>Aprender la técnica limpia sin fatiga ni dolor</td>
+          </tr>
+          <tr>
+            <td><b>Semanas 3 – 4</b></td>
+            <td>5 días/sem</td>
+            <td>4 – 3 – 2 repeticiones</td>
+            <td>10 segundos (20 seg pausa entre series)</td>
+            <td>Construir resistencia de la faja abdominal</td>
+          </tr>
+          <tr>
+            <td><b>Semana 5 en adelante</b></td>
+            <td>5 a 6 días/sem</td>
+            <td>6 – 4 – 2 repeticiones</td>
+            <td>10 segundos (o pasar a plancha lateral completa si no hay molestia)</td>
+            <td>Blindaje diario del segmento L4–L5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-heading reveal">Hábitos Diarios para Proteger el Nivel L4–L5</h2>
+    <div class="habits-grid">
+      <div class="habit-card glass-card reveal">
+        <h3>Cortá las horas de silla</h3>
+        <p>Levantate cada 30 a 40 minutos a caminar 2 minutos. Estar sentado concentra mucha más presión en L4–L5 que estar de pie.</p>
+      </div>
+      <div class="habit-card glass-card reveal">
+        <h3>Caminata a paso firme</h3>
+        <p>Caminar 15 a 20 minutos a buen ritmo con braceo natural lubrica y descomprime los discos lumbares mejor que cualquier estiramiento.</p>
+      </div>
+      <div class="habit-card glass-card reveal">
+        <h3>Técnica al toser o estornudar</h3>
+        <p>Parate derecho, apoyá una mano firme en la lumbar o una mesa y mirá levemente hacia arriba. Nunca te encorves hacia adelante.</p>
+      </div>
+      <div class="habit-card glass-card reveal">
+        <h3>Evitá torsiones bruscas</h3>
+        <p>Con fusión L5–S1 evitá estiramientos profundos de ciática, giros forzados de tronco o levantar peso doblando la cintura.</p>
+      </div>
+    </div>
+
+    <footer>
+      El Jardín de los Dioses · Guía de referencia personal para estabilización lumbar. Ante dolor irradiado persistente, pérdida de fuerza real en el pie o adormecimiento, consultá con tu especialista en columna.
+    </footer>
+  </main>
+
+  <!-- Dock Flotante Dorado -->
+  <div class="floating-dock" aria-label="Control rápido flotante">
+    <span class="dock-timer" id="dockTimer">10s</span>
+    <button class="btn btn-primary btn-pill" id="dockTimerBtn" type="button">▶ Timer</button>
+    <div class="dock-divider"></div>
+    <button class="btn btn-accent btn-pill" id="dockAudioBtn" type="button">▶ Audio</button>
+    <span class="dock-track" id="dockTrack">Tema 01</span>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      // =========================================================================
+      // 0. ESTADOS GLOBALES Y EFECTOS VISUALES DEL JARDÍN DE LOS DIOSES
+      // =========================================================================
+      let activeSynthMode = null;
+      const studioState = {
+        bpm: 80,
+        warmth: 850,
+        scale: 'warm',
+        rhythm: 'cumbia',
+        playing: false,
+        inst: {
+          pad: { on: true, vol: 0.65 },
+          sub: { on: true, vol: 0.60 },
+          rhodes: { on: true, vol: 0.55 },
+          nylon: { on: false, vol: 0.55 },
+          flute: { on: false, vol: 0.45 },
+          rain: { on: false, vol: 0.35 }
+        }
+      };
+
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+        scrollProgress.style.width = pct + '%';
+      }, { passive: true });
+
+      document.querySelectorAll('.glass-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+        }, { passive: true });
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.06 });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // Partículas doradas flotantes (Luciérnagas del Jardín)
+      const ffCanvas = document.getElementById('firefliesCanvas');
+      const ffCtx = ffCanvas.getContext('2d');
+      let ffWidth = ffCanvas.width = window.innerWidth;
+      let ffHeight = ffCanvas.height = window.innerHeight;
+      window.addEventListener('resize', () => {
+        ffWidth = ffCanvas.width = window.innerWidth;
+        ffHeight = ffCanvas.height = window.innerHeight;
+      }, { passive: true });
+
+      const fireflies = Array.from({ length: 32 }, () => ({
+        x: Math.random() * ffWidth,
+        y: Math.random() * ffHeight,
+        r: Math.random() * 2.2 + 0.8,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: -Math.random() * 0.35 - 0.1,
+        phase: Math.random() * Math.PI * 2,
+        gold: Math.random() > 0.35
+      }));
+
+      function animateFireflies() {
+        ffCtx.clearRect(0, 0, ffWidth, ffHeight);
+        for (const p of fireflies) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.phase += 0.025;
+          if (p.y < -10) { p.y = ffHeight + 10; p.x = Math.random() * ffWidth; }
+          if (p.x < -10) p.x = ffWidth + 10;
+          if (p.x > ffWidth + 10) p.x = -10;
+          const alpha = 0.25 + Math.sin(p.phase) * 0.25;
+          ffCtx.beginPath();
+          ffCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ffCtx.fillStyle = p.gold
+            ? 'rgba(253, 224, 71, ' + alpha.toFixed(2) + ')'
+            : 'rgba(110, 231, 183, ' + alpha.toFixed(2) + ')';
+          ffCtx.fill();
+        }
+        requestAnimationFrame(animateFireflies);
+      }
+      animateFireflies();
+
+      // =========================================================================
+      // CONFIGURACIÓN DE TEMAS EN GITHUB
+      // =========================================================================
+      const REPO_TRACKS = [
+        { id: 'repo-1', title: 'Tema 01 — Descarga Lumbar (Ambient Lento)', src: 'audio/Where_The_Weight_Lifts.mp3', tag: 'GitHub' },
+        { id: 'repo-2', title: 'Tema 02 — Reggaetón Lo-Fi Terapéutico', src: 'audio/Manto_de_seda.mp3', tag: 'GitHub' },
+        { id: 'repo-3', title: 'Tema 03 — Salsa Chill / Bolero-Son', src: 'audio/Resting_at_the_Shore.mp3', tag: 'GitHub' },
+        { id: 'repo-4', title: 'Tema 04 — Cumbia Rebajada Ambient', src: 'audio/The_Warm_Weight.mp3', tag: 'GitHub' },
+        { id: 'repo-5', title: 'Tema 05 — Dembow Suave & Guitarra Nylon', src: 'audio/Deep_Exhale.mp3', tag: 'GitHub' }
+      ];
+
+      // --- 1. IndexedDB (GIFs + Local Audio Tracks) ---
+      const DB_NAME = 'LumbarGuideMediaDB';
+      const GIF_STORE = 'gifs';
+      const AUDIO_STORE = 'audioTracks';
+      const GIF_KEYS = ['psoas', 'curlup', 'sideplank', 'birddog'];
+      const DEFAULT_GIFS = {
+        psoas: 'descarga_90_90.gif',
+        curlup: 'abdominal_modificado.gif',
+        sideplank: 'plancha_lateral.gif',
+        birddog: 'perro_pajaro.gif'
+      };
+
+      function openDB() {
+        return new Promise((resolve, reject) => {
+          const req = indexedDB.open(DB_NAME, 2);
+          req.onupgradeneeded = () => {
+            const db = req.result;
+            if (!db.objectStoreNames.contains(GIF_STORE)) db.createObjectStore(GIF_STORE);
+            if (!db.objectStoreNames.contains(AUDIO_STORE)) db.createObjectStore(AUDIO_STORE, { keyPath: 'id' });
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      async function saveGifToDB(key, dataUrl) {
+        try {
+          const db = await openDB();
+          db.transaction(GIF_STORE, 'readwrite').objectStore(GIF_STORE).put(dataUrl, key);
+        } catch (e) {}
+      }
+
+      async function loadGifFromDB(key) {
+        try {
+          const db = await openDB();
+          return await new Promise((resolve) => {
+            const req = db.transaction(GIF_STORE, 'readonly').objectStore(GIF_STORE).get(key);
+            req.onsuccess = () => resolve(req.result || null);
+            req.onerror = () => resolve(null);
+          });
+        } catch (e) { return null; }
+      }
+
+      async function deleteGifFromDB(key) {
+        try {
+          const db = await openDB();
+          db.transaction(GIF_STORE, 'readwrite').objectStore(GIF_STORE).delete(key);
+        } catch (e) {}
+      }
+
+      async function saveAudioToDB(trackObj) {
+        try {
+          const db = await openDB();
+          db.transaction(AUDIO_STORE, 'readwrite').objectStore(AUDIO_STORE).put(trackObj);
+        } catch (e) {}
+      }
+
+      async function loadAllAudiosFromDB() {
+        try {
+          const db = await openDB();
+          return await new Promise((resolve) => {
+            const req = db.transaction(AUDIO_STORE, 'readonly').objectStore(AUDIO_STORE).getAll();
+            req.onsuccess = () => resolve(req.result || []);
+            req.onerror = () => resolve([]);
+          });
+        } catch (e) { return []; }
+      }
+
+      async function deleteAudioFromDB(id) {
+        try {
+          const db = await openDB();
+          db.transaction(AUDIO_STORE, 'readwrite').objectStore(AUDIO_STORE).delete(id);
+        } catch (e) {}
+      }
+
+      // --- 2. GIF Loader ---
+      function setMediaState(key, isActive, sourceLabel) {
+        const status = document.getElementById('status-' + key);
+        const dot = status.querySelector('.dot');
+        const label = status.querySelector('.status-label');
+        const resetBtn = document.getElementById('reset-' + key);
+
+        if (isActive) {
+          dot.classList.add('gif-active');
+          label.textContent = 'GIF animado activo (' + sourceLabel + ')';
+          if (resetBtn) resetBtn.style.display = sourceLabel === 'guardado local' ? 'inline-block' : 'none';
+        } else {
+          dot.classList.remove('gif-active');
+          label.textContent = sourceLabel || 'No encontrado (usá Cargar GIF)';
+          if (resetBtn) resetBtn.style.display = 'none';
+        }
+      }
+
+      async function removeGif(key) {
+        const img = document.getElementById('img-' + key);
+        img.src = DEFAULT_GIFS[key];
+        setMediaState(key, true, 'archivo en carpeta');
+        await deleteGifFromDB(key);
+      }
+
+      async function initGifs() {
+        for (const key of GIF_KEYS) {
+          const img = document.getElementById('img-' + key);
+          const saved = await loadGifFromDB(key);
+
+          img.onerror = function() {
+            setMediaState(key, false, 'Falta ' + DEFAULT_GIFS[key]);
+          };
+          img.onload = function() {
+            if (!saved) setMediaState(key, true, 'archivo en carpeta');
+          };
+
+          if (saved) {
+            img.src = saved;
+            setMediaState(key, true, 'guardado local');
+          } else if (img.complete) {
+            if (img.naturalWidth > 0) setMediaState(key, true, 'archivo en carpeta');
+            else setMediaState(key, false, 'Falta ' + DEFAULT_GIFS[key]);
+          }
+
+          const fileInput = document.getElementById('file-' + key);
+          fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async (ev) => {
+              const dataUrl = ev.target.result;
+              img.src = dataUrl;
+              setMediaState(key, true, 'guardado local');
+              await saveGifToDB(key, dataUrl);
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+
+        document.querySelectorAll('[data-upload-for]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.getElementById('file-' + btn.getAttribute('data-upload-for')).click();
+          });
+        });
+
+        document.querySelectorAll('[data-reset-for]').forEach(btn => {
+          btn.addEventListener('click', () => removeGif(btn.getAttribute('data-reset-for')));
+        });
+      }
+
+      initGifs();
+
+      // --- 3. Music Playlist Player + Reactive Spectrum Visualizer ---
+      const audioEl = document.getElementById('audioEl');
+      const playlistEl = document.getElementById('playlistEl');
+      const currentTrackTitle = document.getElementById('currentTrackTitle');
+      const currentTrackMeta = document.getElementById('currentTrackMeta');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const prevTrackBtn = document.getElementById('prevTrackBtn');
+      const nextTrackBtn = document.getElementById('nextTrackBtn');
+      const loopTrackBtn = document.getElementById('loopTrackBtn');
+      const seekBar = document.getElementById('seekBar');
+      const timeCurrent = document.getElementById('timeCurrent');
+      const timeTotal = document.getElementById('timeTotal');
+      const playerVol = document.getElementById('playerVol');
+      const playerVolLabel = document.getElementById('playerVolLabel');
+      const audioUploadInput = document.getElementById('audioUploadInput');
+      const addTracksBtn = document.getElementById('addTracksBtn');
+      const dockAudioBtn = document.getElementById('dockAudioBtn');
+      const dockTrack = document.getElementById('dockTrack');
+      const visCanvas = document.getElementById('visualizerCanvas');
+      const visCtx = visCanvas.getContext('2d');
+
+      let tracks = [];
+      let currentIndex = -1;
+      let loopSingle = true;
+      audioEl.volume = 0.35;
+      audioEl.loop = true;
+
+      let visPhase = 0;
+      function drawVisualizer() {
+        const w = visCanvas.width;
+        const h = visCanvas.height;
+        visCtx.clearRect(0, 0, w, h);
+        const isPlaying = !audioEl.paused || studioState.playing || activeSynthMode !== null;
+        const bars = 48;
+        const barW = (w / bars) - 3;
+        visPhase += isPlaying ? 0.08 : 0.015;
+
+        for (let i = 0; i < bars; i++) {
+          const wave = isPlaying
+            ? (Math.sin(visPhase + i * 0.35) * 0.4 + Math.cos(visPhase * 0.7 - i * 0.2) * 0.35 + 0.45)
+            : (Math.sin(visPhase + i * 0.25) * 0.08 + 0.14);
+          const barH = Math.max(4, wave * (h - 10));
+          const x = i * (barW + 3) + 2;
+          const y = (h - barH) / 2;
+
+          const grad = visCtx.createLinearGradient(0, y, 0, y + barH);
+          grad.addColorStop(0, '#fde047');
+          grad.addColorStop(1, '#10b981');
+          visCtx.fillStyle = isPlaying ? grad : 'rgba(234, 179, 8, 0.24)';
+          visCtx.beginPath();
+          if (visCtx.roundRect) {
+            visCtx.roundRect(x, y, barW, barH, 3);
+          } else {
+            visCtx.rect(x, y, barW, barH);
+          }
+          visCtx.fill();
+        }
+        requestAnimationFrame(drawVisualizer);
+      }
+      drawVisualizer();
+
+      function syncPlayButtons() {
+        const playing = !audioEl.paused;
+        playPauseBtn.textContent = playing ? '⏸ Pausar' : '▶ Reproducir';
+        dockAudioBtn.textContent = playing ? '⏸ Audio' : '▶ Audio';
+      }
+
+      function formatTime(sec) {
+        if (!isFinite(sec) || sec < 0) return '0:00';
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      function renderPlaylist() {
+        playlistEl.innerHTML = '';
+        if (tracks.length === 0) {
+          const li = document.createElement('li');
+          li.className = 'playlist-item';
+          li.style.cursor = 'default';
+          li.textContent = 'Todavía no hay temas cargados. Tocá "+ Agregar temas".';
+          playlistEl.appendChild(li);
+          return;
+        }
+        tracks.forEach((t, idx) => {
+          const li = document.createElement('li');
+          li.className = 'playlist-item' + (idx === currentIndex ? ' active' : '');
+
+          const meta = document.createElement('div');
+          meta.className = 'playlist-item-meta';
+
+          const titleSpan = document.createElement('span');
+          titleSpan.className = 'playlist-title';
+          titleSpan.textContent = (idx === currentIndex ? '▶ ' : '') + t.title;
+
+          const tagSpan = document.createElement('span');
+          tagSpan.className = 'playlist-tag';
+          tagSpan.textContent = t.tag;
+
+          meta.appendChild(titleSpan);
+          meta.appendChild(tagSpan);
+          li.appendChild(meta);
+
+          if (t.local) {
+            const delBtn = document.createElement('button');
+            delBtn.type = 'button';
+            delBtn.className = 'del-track-btn';
+            delBtn.title = 'Quitar tema guardado';
+            delBtn.textContent = '✕';
+            delBtn.addEventListener('click', async (e) => {
+              e.stopPropagation();
+              await deleteAudioFromDB(t.id);
+              if (t.objectUrl) URL.revokeObjectURL(t.objectUrl);
+              tracks.splice(idx, 1);
+              if (currentIndex === idx) {
+                audioEl.pause();
+                audioEl.removeAttribute('src');
+                currentIndex = -1;
+                currentTrackTitle.textContent = 'Sin tema seleccionado';
+                dockTrack.textContent = 'Sin tema';
+                currentTrackMeta.textContent = 'Elegí otro tema de la lista';
+                syncPlayButtons();
+              } else if (currentIndex > idx) {
+                currentIndex--;
+              }
+              renderPlaylist();
+            });
+            li.appendChild(delBtn);
+          }
+
+          li.addEventListener('click', () => selectTrack(idx, true));
+          playlistEl.appendChild(li);
+        });
+      }
+
+      function handlePlayError(err, track) {
+        syncPlayButtons();
+        if (err && err.name === 'AbortError') return;
+        if (err && err.name === 'NotAllowedError') {
+          currentTrackMeta.textContent = 'Tocá "▶ Reproducir" para iniciar el audio.';
+          return;
+        }
+        if (audioEl.error) {
+          currentTrackMeta.textContent = 'No se encontró "' + track.src + '". Revisá la carpeta audio/ en GitHub.';
+        }
+      }
+
+      function selectTrack(idx, autoPlay) {
+        if (idx < 0 || idx >= tracks.length) return;
+        currentIndex = idx;
+        const t = tracks[idx];
+        audioEl.src = t.objectUrl || t.src;
+        audioEl.load();
+        currentTrackTitle.textContent = t.title;
+        dockTrack.textContent = t.title;
+        currentTrackMeta.textContent = t.local ? 'Guardado localmente (offline)' : 'Santuario GitHub (' + t.src + ')';
+        renderPlaylist();
+        if (autoPlay) {
+          const playPromise = audioEl.play();
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              syncPlayButtons();
+            }).catch((err) => handlePlayError(err, t));
+          }
+        }
+      }
+
+      async function initPlaylist() {
+        const saved = await loadAllAudiosFromDB();
+        const localTracks = saved.map(item => ({
+          id: item.id,
+          title: item.title,
+          objectUrl: URL.createObjectURL(item.blob),
+          tag: 'Local',
+          local: true
+        }));
+        tracks = [...localTracks, ...REPO_TRACKS];
+        renderPlaylist();
+        if (tracks.length > 0) {
+          selectTrack(0, false);
+        }
+      }
+
+      addTracksBtn.addEventListener('click', () => audioUploadInput.click());
+
+      audioUploadInput.addEventListener('change', async (e) => {
+        const files = Array.from(e.target.files || []);
+        if (!files.length) return;
+        for (const file of files) {
+          const id = 'local-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+          const cleanName = file.name.replace(/\.[^/.]+$/, '');
+          await saveAudioToDB({ id, title: cleanName, blob: file });
+          tracks.unshift({
+            id,
+            title: cleanName,
+            objectUrl: URL.createObjectURL(file),
+            tag: 'Local',
+            local: true
+          });
+        }
+        audioUploadInput.value = '';
+        selectTrack(0, true);
+      });
+
+      function toggleAudioPlay() {
+        if (currentIndex === -1 && tracks.length > 0) {
+          selectTrack(0, true);
+          return;
+        }
+        if (audioEl.paused) {
+          const t = tracks[currentIndex];
+          const playPromise = audioEl.play();
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              syncPlayButtons();
+            }).catch((err) => handlePlayError(err, t));
+          }
+        } else {
+          audioEl.pause();
+          syncPlayButtons();
+        }
+      }
+
+      playPauseBtn.addEventListener('click', toggleAudioPlay);
+      dockAudioBtn.addEventListener('click', toggleAudioPlay);
+
+      prevTrackBtn.addEventListener('click', () => {
+        if (!tracks.length) return;
+        const nextIdx = (currentIndex - 1 + tracks.length) % tracks.length;
+        selectTrack(nextIdx, true);
+      });
+
+      nextTrackBtn.addEventListener('click', () => {
+        if (!tracks.length) return;
+        const nextIdx = (currentIndex + 1) % tracks.length;
+        selectTrack(nextIdx, true);
+      });
+
+      loopTrackBtn.addEventListener('click', () => {
+        loopSingle = !loopSingle;
+        audioEl.loop = loopSingle;
+        loopTrackBtn.classList.toggle('active', loopSingle);
+        loopTrackBtn.textContent = loopSingle ? '🔁 Bucle' : '➡ Lista';
+      });
+
+      audioEl.addEventListener('ended', () => {
+        if (!loopSingle && tracks.length > 1) {
+          selectTrack((currentIndex + 1) % tracks.length, true);
+        } else {
+          syncPlayButtons();
+        }
+      });
+
+      audioEl.addEventListener('timeupdate', () => {
+        if (audioEl.duration) {
+          seekBar.value = (audioEl.currentTime / audioEl.duration) * 100;
+          timeCurrent.textContent = formatTime(audioEl.currentTime);
+          timeTotal.textContent = formatTime(audioEl.duration);
+        }
+      });
+
+      seekBar.addEventListener('input', () => {
+        if (audioEl.duration) {
+          audioEl.currentTime = (seekBar.value / 100) * audioEl.duration;
+        }
+      });
+
+      playerVol.addEventListener('input', () => {
+        const v = parseFloat(playerVol.value);
+        audioEl.volume = v;
+        playerVolLabel.textContent = Math.round(v * 100) + '%';
+      });
+
+      initPlaylist();
+
+      // --- 4. Built-in Web Audio Therapeutic Sound Generator ---
+      let synthCtx = null;
+      let synthGain = null;
+      let activeSynthNodes = [];
+
+      const synthBtns = document.querySelectorAll('.synth-btn');
+      const synthVol = document.getElementById('synthVol');
+      const stopSynthBtn = document.getElementById('stopSynthBtn');
+
+      function stopSynth() {
+        activeSynthNodes.forEach(n => {
+          try { if (n.stop) n.stop(); } catch (e) {}
+          try { n.disconnect(); } catch (e) {}
+        });
+        activeSynthNodes = [];
+        activeSynthMode = null;
+        synthBtns.forEach(b => b.classList.remove('active'));
+      }
+
+      function startSynth(mode) {
+        if (activeSynthMode === mode) {
+          stopSynth();
+          return;
+        }
+        stopSynth();
+        try {
+          if (!synthCtx) synthCtx = new (window.AudioContext || window.webkitAudioContext)();
+          if (synthCtx.state === 'suspended') synthCtx.resume();
+
+          synthGain = synthCtx.createGain();
+          synthGain.gain.setValueAtTime(parseFloat(synthVol.value), synthCtx.currentTime);
+          synthGain.connect(synthCtx.destination);
+          activeSynthNodes.push(synthGain);
+
+          if (mode === 'alpha' || mode === 'theta') {
+            const baseFreq = 180;
+            const beatFreq = mode === 'alpha' ? 10 : 6;
+
+            const oscL = synthCtx.createOscillator();
+            const oscR = synthCtx.createOscillator();
+            const panL = synthCtx.createStereoPanner ? synthCtx.createStereoPanner() : null;
+            const panR = synthCtx.createStereoPanner ? synthCtx.createStereoPanner() : null;
+
+            oscL.type = 'sine';
+            oscR.type = 'sine';
+            oscL.frequency.value = baseFreq;
+            oscR.frequency.value = baseFreq + beatFreq;
+
+            if (panL && panR) {
+              panL.pan.value = -1;
+              panR.pan.value = 1;
+              oscL.connect(panL).connect(synthGain);
+              oscR.connect(panR).connect(synthGain);
+              activeSynthNodes.push(panL, panR);
+            } else {
+              oscL.connect(synthGain);
+              oscR.connect(synthGain);
+            }
+            oscL.start();
+            oscR.start();
+            activeSynthNodes.push(oscL, oscR);
+          } else if (mode === 'pink') {
+            const bufferSize = synthCtx.sampleRate * 3;
+            const buffer = synthCtx.createBuffer(1, bufferSize, synthCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+            for (let i = 0; i < bufferSize; i++) {
+              const white = Math.random() * 2 - 1;
+              b0 = 0.99886 * b0 + white * 0.0555179;
+              b1 = 0.99332 * b1 + white * 0.0750759;
+              b2 = 0.96900 * b2 + white * 0.1538520;
+              b3 = 0.86650 * b3 + white * 0.3104856;
+              b4 = 0.55000 * b4 + white * 0.5329522;
+              b5 = -0.7616 * b5 - white * 0.0168980;
+              data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+              b6 = white * 0.115926;
+            }
+            const noise = synthCtx.createBufferSource();
+            noise.buffer = buffer;
+            noise.loop = true;
+
+            const filter = synthCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.value = 750;
+
+            noise.connect(filter).connect(synthGain);
+            noise.start();
+            activeSynthNodes.push(noise, filter);
+          }
+
+          activeSynthMode = mode;
+          synthBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-synth') === mode));
+        } catch (e) {}
+      }
+
+      synthBtns.forEach(btn => {
+        btn.addEventListener('click', () => startSynth(btn.getAttribute('data-synth')));
+      });
+      stopSynthBtn.addEventListener('click', stopSynth);
+      synthVol.addEventListener('input', () => {
+        if (synthGain && synthCtx) {
+          synthGain.gain.setTargetAtTime(parseFloat(synthVol.value), synthCtx.currentTime, 0.05);
+        }
+      });
+
+      // --- 5. Circular Isometric Timer + Floating Dock Sync ---
+      let targetSeconds = 10;
+      let remaining = 10;
+      let timerId = null;
+      const CIRCUMFERENCE = 226.2;
+
+      const timerDisplay = document.getElementById('timerDisplay');
+      const timerRing = document.getElementById('timerRing');
+      const startBtn = document.getElementById('startBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const soundToggle = document.getElementById('soundToggle');
+      const dockTimer = document.getElementById('dockTimer');
+      const dockTimerBtn = document.getElementById('dockTimerBtn');
+
+      function beep(freq = 660, duration = 0.16) {
+        if (!soundToggle.checked) return;
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + duration);
+        } catch (e) {}
+      }
+
+      function updateTimerUI() {
+        timerDisplay.textContent = remaining + 's';
+        dockTimer.textContent = remaining + 's';
+        const ratio = targetSeconds > 0 ? (remaining / targetSeconds) : 0;
+        timerRing.style.strokeDashoffset = CIRCUMFERENCE * (1 - ratio);
+        timerRing.style.stroke = remaining === 0 ? '#10b981' : '#eab308';
+      }
+
+      function stopTimer() {
+        if (timerId) { clearInterval(timerId); timerId = null; }
+        startBtn.textContent = 'Iniciar';
+        dockTimerBtn.textContent = '▶ Timer';
+      }
+
+      function toggleTimer() {
+        if (timerId) {
+          stopTimer();
+          return;
+        }
+        if (remaining === 0) remaining = targetSeconds;
+        beep(520, 0.09);
+        startBtn.textContent = 'Pausar';
+        dockTimerBtn.textContent = '⏸ Pausar';
+        updateTimerUI();
+        timerId = setInterval(() => {
+          remaining--;
+          updateTimerUI();
+          if (remaining <= 0) {
+            stopTimer();
+            beep(880, 0.25);
+            setTimeout(() => beep(1046, 0.25), 220);
+          }
+        }, 1000);
+      }
+
+      startBtn.addEventListener('click', toggleTimer);
+      dockTimerBtn.addEventListener('click', toggleTimer);
+
+      resetBtn.addEventListener('click', () => {
+        stopTimer();
+        remaining = targetSeconds;
+        updateTimerUI();
+      });
+
+      document.querySelectorAll('[data-sec]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-sec]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          targetSeconds = parseInt(btn.getAttribute('data-sec'), 10);
+          stopTimer();
+          remaining = targetSeconds;
+          updateTimerUI();
+        });
+      });
+
+      // --- 6. Session Checklist ---
+      const checks = document.querySelectorAll('.session-check');
+      const progressFill = document.getElementById('progressFill');
+      const progressText = document.getElementById('progressText');
+      const progressPct = document.getElementById('progressPct');
+
+      function updateProgress() {
+        let done = 0;
+        const state = {};
+        checks.forEach(c => {
+          if (c.checked) done++;
+          state[c.dataset.id] = c.checked;
+          const card = document.querySelector('[data-card-id="' + c.dataset.id + '"]');
+          if (card) card.classList.toggle('completed-card', c.checked);
+        });
+        const pct = Math.round((done / checks.length) * 100);
+        progressFill.style.width = pct + '%';
+        progressText.textContent = done + ' de ' + checks.length + ' bloques completados';
+        progressPct.textContent = pct + '%';
+        try { localStorage.setItem('lumbarSessionChecks', JSON.stringify(state)); } catch (e) {}
+      }
+
+      try {
+        const saved = JSON.parse(localStorage.getItem('lumbarSessionChecks') || '{}');
+        checks.forEach(c => { if (saved[c.dataset.id]) c.checked = true; });
+      } catch (e) {}
+      updateProgress();
+
+      checks.forEach(c => c.addEventListener('change', updateProgress));
+      document.getElementById('clearProgressBtn').addEventListener('click', () => {
+        checks.forEach(c => c.checked = false);
+        updateProgress();
+      });
+
+      // --- 7. Healing Sound Studio (Live Offline Synthesizer + Prompt Builder) ---
+      const studioBpm = document.getElementById('studioBpm');
+      const studioBpmVal = document.getElementById('studioBpmVal');
+      const studioWarmth = document.getElementById('studioWarmth');
+      const studioWarmthVal = document.getElementById('studioWarmthVal');
+      const studioScale = document.getElementById('studioScale');
+      const rhythmBtns = document.querySelectorAll('.rhythm-btn');
+      const studioPlayBtn = document.getElementById('studioPlayBtn');
+      const studioStopBtn = document.getElementById('studioStopBtn');
+      const studioMasterVol = document.getElementById('studioMasterVol');
+      const studioMasterVolVal = document.getElementById('studioMasterVolVal');
+      const studioPromptText = document.getElementById('studioPromptText');
+      const copyPromptBtn = document.getElementById('copyPromptBtn');
+
+      const SCALES = {
+        warm: {
+          chords: [
+            [130.81, 164.81, 196.00, 246.94],
+            [110.00, 130.81, 164.81, 196.00],
+            [174.61, 220.00, 261.63, 329.63],
+            [146.83, 174.61, 220.00, 261.63]
+          ],
+          bass: [65.41, 55.00, 87.31, 73.42],
+          melody: [261.63, 293.66, 329.63, 392.00, 440.00, 523.25]
+        },
+        calm: {
+          chords: [
+            [110.00, 130.81, 164.81, 196.00],
+            [87.31, 110.00, 130.81, 164.81],
+            [146.83, 174.61, 220.00, 261.63],
+            [123.47, 146.83, 196.00, 246.94]
+          ],
+          bass: [55.00, 43.65, 73.42, 61.74],
+          melody: [220.00, 261.63, 293.66, 329.63, 392.00, 440.00]
+        },
+        float: {
+          chords: [
+            [130.81, 146.83, 196.00, 261.63],
+            [116.54, 130.81, 174.61, 233.08],
+            [146.83, 164.81, 220.00, 293.66],
+            [98.00, 110.00, 146.83, 196.00]
+          ],
+          bass: [65.41, 58.27, 73.42, 49.00],
+          melody: [261.63, 293.66, 349.23, 392.00, 440.00]
+        }
+      };
+
+      const RHYTHM_META = {
+        none: { name: 'AMBIENT TERAPÉUTICO PURO (SIN PERCUSIÓN)', perc: 'Sin percusión ni batería, flujo continuo y envolvente' },
+        cumbia: { name: 'CUMBIA REBAJADA AMBIENT', perc: 'Percusión de cumbia rebajada muy suave (bajo cadencioso y güiro filtrado en el fondo, sin chasquidos agudos)' },
+        dembow: { name: 'REGGAETÓN LO-FI CHILL (DEMBOW SUAVE)', perc: 'Pulso dembow extremadamente blando, filtrado y redondeado (soft-kick sub-grave y redoblante sin brillo agresivo)' },
+        salsa: { name: 'SALSA CHILL / BOLERO-SON SUAVE', perc: 'Base de salsa chill / bolero-son con tumbao suave, congas aterciopeladas y shaker muy sutil (sin trompetas ni timbales estridentes)' }
+      };
+
+      const INST_LABELS = {
+        pad: 'cama continua de pads analógicos cálidos',
+        sub: 'sub-grave profundo y envolvente',
+        rhodes: 'piano eléctrico Rhodes con acordes espaciados',
+        nylon: 'guitarra acústica de cuerdas de nylon con arpegios suaves',
+        flute: 'flauta cálida y aireada en registro grave-medio',
+        rain: 'textura muy sutil de lluvia / ruido rosa de fondo'
+      };
+
+      function updatePrompt() {
+        const r = RHYTHM_META[studioState.rhythm];
+        const activeInsts = Object.keys(studioState.inst)
+          .filter(k => studioState.inst[k].on)
+          .map(k => INST_LABELS[k]);
+        const instList = activeInsts.length ? activeInsts.join(', ') : 'pads cálidos minimalistas';
+        const moodMap = {
+          warm: 'cálido, luminoso y reconfortante',
+          calm: 'introspectivo, sereno y enfocado en el alivio físico',
+          float: 'flotante, meditativo y sin gravedad'
+        };
+        const filterDesc = studioState.warmth <= 650 ? 'ultra-suave y muy filtrado' : (studioState.warmth <= 1050 ? 'cálido y redondeado' : 'orgánico y suave');
+
+        studioPromptText.value =
+          'Generá un tema instrumental terapéutico de [' + r.name + '] diseñado para alivio del dolor agudo y relajación del sistema nervioso parasimpático.
+' +
+          'Tempo: Constante y cadencioso a ' + studioState.bpm + ' BPM, sin aceleraciones ni cortes secos.
+' +
+          'Base y ritmo: ' + r.perc + '.
+' +
+          'Instrumentación: ' + instList + '.
+' +
+          'Clima y mezcla: Ambiente ' + moodMap[studioState.scale] + ', sonido ' + filterDesc + ' (sin frecuencias agudas irritantes ni golpes bruscos), volumen parejo y 100% instrumental.';
+      }
+
+      let stCtx = null;
+      let stMaster = null;
+      let stFilter = null;
+      let stRainNode = null;
+      let stRainGain = null;
+      let stTimer = null;
+      let stStep = 0;
+      let stChordIdx = 0;
+
+      function ensureStudioAudio() {
+        if (!stCtx) {
+          stCtx = new (window.AudioContext || window.webkitAudioContext)();
+          stFilter = stCtx.createBiquadFilter();
+          stFilter.type = 'lowpass';
+          stFilter.frequency.value = studioState.warmth;
+          stFilter.Q.value = 0.7;
+
+          stMaster = stCtx.createGain();
+          stMaster.gain.value = parseFloat(studioMasterVol.value);
+
+          stFilter.connect(stMaster).connect(stCtx.destination);
+        }
+        if (stCtx.state === 'suspended') stCtx.resume();
+      }
+
+      function updateRainLayer() {
+        if (!studioState.playing || !stCtx) return;
+        if (studioState.inst.rain.on) {
+          if (!stRainNode) {
+            const len = stCtx.sampleRate * 3;
+            const buf = stCtx.createBuffer(1, len, stCtx.sampleRate);
+            const d = buf.getChannelData(0);
+            let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+            for (let i = 0; i < len; i++) {
+              const w = Math.random() * 2 - 1;
+              b0 = 0.99886*b0 + w*0.0555179;
+              b1 = 0.99332*b1 + w*0.0750759;
+              b2 = 0.96900*b2 + w*0.1538520;
+              b3 = 0.86650*b3 + w*0.3104856;
+              b4 = 0.55000*b4 + w*0.5329522;
+              b5 = -0.7616*b5 - w*0.0168980;
+              d[i] = (b0+b1+b2+b3+b4+b5+b6+w*0.5362) * 0.03;
+              b6 = w*0.115926;
+            }
+            stRainNode = stCtx.createBufferSource();
+            stRainNode.buffer = buf;
+            stRainNode.loop = true;
+            stRainGain = stCtx.createGain();
+            stRainGain.gain.value = studioState.inst.rain.vol * 0.45;
+            stRainNode.connect(stRainGain).connect(stFilter);
+            stRainNode.start();
+          } else if (stRainGain) {
+            stRainGain.gain.setTargetAtTime(studioState.inst.rain.vol * 0.45, stCtx.currentTime, 0.1);
+          }
+        } else if (stRainNode) {
+          try { stRainNode.stop(); stRainNode.disconnect(); } catch (e) {}
+          stRainNode = null;
+          stRainGain = null;
+        }
+      }
+
+      function playSoftKick(time, gainAmt) {
+        const osc = stCtx.createOscillator();
+        const g = stCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(98, time);
+        osc.frequency.exponentialRampToValueAtTime(42, time + 0.16);
+        g.gain.setValueAtTime(0.001, time);
+        g.gain.linearRampToValueAtTime(gainAmt, time + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.001, time + 0.24);
+        osc.connect(g).connect(stFilter);
+        osc.start(time);
+        osc.stop(time + 0.26);
+      }
+
+      function playSoftPerc(time, freq, dur, gainAmt) {
+        const osc = stCtx.createOscillator();
+        const g = stCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, time);
+        osc.frequency.exponentialRampToValueAtTime(freq * 0.58, time + dur);
+        g.gain.setValueAtTime(0.001, time);
+        g.gain.linearRampToValueAtTime(gainAmt, time + 0.008);
+        g.gain.exponentialRampToValueAtTime(0.001, time + dur);
+        osc.connect(g).connect(stFilter);
+        osc.start(time);
+        osc.stop(time + dur + 0.02);
+      }
+
+      function playSoftShaker(time, dur, gainAmt) {
+        const len = Math.floor(stCtx.sampleRate * dur);
+        const buf = stCtx.createBuffer(1, len, stCtx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+        const src = stCtx.createBufferSource();
+        src.buffer = buf;
+        const bp = stCtx.createBiquadFilter();
+        bp.type = 'bandpass';
+        bp.frequency.value = 1100;
+        bp.Q.value = 1.2;
+        const g = stCtx.createGain();
+        g.gain.setValueAtTime(gainAmt, time);
+        g.gain.exponentialRampToValueAtTime(0.001, time + dur);
+        src.connect(bp).connect(g).connect(stFilter);
+        src.start(time);
+      }
+
+      function playTone(time, freq, type, dur, attack, gainAmt) {
+        const osc = stCtx.createOscillator();
+        const g = stCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, time);
+        g.gain.setValueAtTime(0.0008, time);
+        g.gain.linearRampToValueAtTime(gainAmt, time + attack);
+        g.gain.exponentialRampToValueAtTime(0.0008, time + dur);
+        osc.connect(g).connect(stFilter);
+        osc.start(time);
+        osc.stop(time + dur + 0.04);
+      }
+
+      function runStudioStep() {
+        if (!studioState.playing || !stCtx) return;
+        const now = stCtx.currentTime + 0.02;
+        const stepDur = (60 / studioState.bpm) / 4;
+        const sc = SCALES[studioState.scale];
+        const stepInBar = stStep % 16;
+
+        if (stepInBar === 0) {
+          stChordIdx = Math.floor(stStep / 16) % sc.chords.length;
+        }
+        const chord = sc.chords[stChordIdx];
+        const rootBass = sc.bass[stChordIdx];
+
+        if (studioState.inst.pad.on && stepInBar === 0) {
+          const padDur = stepDur * 16.5;
+          const v = studioState.inst.pad.vol * 0.11;
+          chord.forEach(f => playTone(now, f, 'sine', padDur, stepDur * 3, v));
+        }
+
+        if (studioState.inst.sub.on) {
+          const v = studioState.inst.sub.vol * 0.34;
+          if (studioState.rhythm === 'cumbia') {
+            if (stepInBar === 0) playTone(now, rootBass, 'sine', stepDur * 4, 0.03, v);
+            if (stepInBar === 6) playTone(now, rootBass * 1.25, 'sine', stepDur * 3, 0.03, v * 0.85);
+            if (stepInBar === 12) playTone(now, rootBass * 1.5, 'sine', stepDur * 3.5, 0.03, v * 0.85);
+          } else if (studioState.rhythm === 'salsa') {
+            if (stepInBar === 0 || stepInBar === 6 || stepInBar === 12) {
+              const f = stepInBar === 6 ? rootBass * 1.5 : rootBass;
+              playTone(now, f, 'sine', stepDur * 3.8, 0.03, v);
+            }
+          } else if (studioState.rhythm === 'dembow') {
+            if (stepInBar === 0 || stepInBar === 8) playTone(now, rootBass, 'sine', stepDur * 6.5, 0.04, v);
+          } else {
+            if (stepInBar === 0) playTone(now, rootBass, 'sine', stepDur * 15, 0.4, v * 0.8);
+          }
+        }
+
+        if (studioState.rhythm === 'cumbia') {
+          if (stepInBar % 4 === 0) playSoftKick(now, 0.30);
+          if (stepInBar === 2 || stepInBar === 6 || stepInBar === 10 || stepInBar === 14) playSoftShaker(now, 0.09, 0.07);
+          if (stepInBar === 3 || stepInBar === 7 || stepInBar === 11 || stepInBar === 15) playSoftShaker(now, 0.05, 0.04);
+        } else if (studioState.rhythm === 'dembow') {
+          if (stepInBar === 0 || stepInBar === 4 || stepInBar === 8 || stepInBar === 12) playSoftKick(now, 0.34);
+          if (stepInBar === 3 || stepInBar === 6 || stepInBar === 11 || stepInBar === 14) playSoftPerc(now, 165, 0.11, 0.16);
+        } else if (studioState.rhythm === 'salsa') {
+          if (stepInBar === 0 || stepInBar === 6 || stepInBar === 12) playSoftKick(now, 0.22);
+          if (stepInBar === 4 || stepInBar === 10 || stepInBar === 14) playSoftPerc(now, 210, 0.12, 0.14);
+          if (stepInBar % 2 === 0) playSoftShaker(now, 0.05, 0.04);
+        }
+
+        if (studioState.inst.rhodes.on) {
+          const v = studioState.inst.rhodes.vol * 0.11;
+          if (stepInBar === 0 || (studioState.rhythm === 'salsa' && stepInBar === 6) || (studioState.rhythm !== 'none' && stepInBar === 10)) {
+            chord.forEach((f, i) => playTone(now + i * 0.025, f * 2, 'triangle', stepDur * 6, 0.03, v));
+          }
+        }
+
+        if (studioState.inst.nylon.on && (stepInBar % 2 === 0)) {
+          const v = studioState.inst.nylon.vol * 0.14;
+          const note = chord[(stepInBar / 2) % chord.length] * 2;
+          playTone(now, note, 'triangle', stepDur * 2.6, 0.015, v);
+        }
+
+        if (studioState.inst.flute.on && (stepInBar === 4 || stepInBar === 12)) {
+          const v = studioState.inst.flute.vol * 0.13;
+          const mNote = sc.melody[(stChordIdx + (stepInBar === 12 ? 2 : 0)) % sc.melody.length];
+          playTone(now, mNote, 'sine', stepDur * 6.5, 0.25, v);
+        }
+
+        stStep++;
+        stTimer = setTimeout(runStudioStep, stepDur * 1000);
+      }
+
+      function startStudio() {
+        if (studioState.playing) return;
+        ensureStudioAudio();
+        studioState.playing = true;
+        stStep = 0;
+        studioPlayBtn.textContent = '⏸ Mezcla sonando...';
+        studioPlayBtn.classList.remove('btn-primary');
+        studioPlayBtn.classList.add('btn-accent');
+        updateRainLayer();
+        runStudioStep();
+      }
+
+      function stopStudio() {
+        studioState.playing = false;
+        if (stTimer) { clearTimeout(stTimer); stTimer = null; }
+        if (stRainNode) {
+          try { stRainNode.stop(); stRainNode.disconnect(); } catch (e) {}
+          stRainNode = null;
+          stRainGain = null;
+        }
+        studioPlayBtn.textContent = '▶ Tocar mezcla en vivo';
+        studioPlayBtn.classList.remove('btn-accent');
+        studioPlayBtn.classList.add('btn-primary');
+      }
+
+      studioPlayBtn.addEventListener('click', () => {
+        if (studioState.playing) stopStudio();
+        else startStudio();
+      });
+      studioStopBtn.addEventListener('click', stopStudio);
+
+      studioBpm.addEventListener('input', () => {
+        studioState.bpm = parseInt(studioBpm.value, 10);
+        studioBpmVal.textContent = studioState.bpm + ' BPM';
+        updatePrompt();
+      });
+
+      studioWarmth.addEventListener('input', () => {
+        studioState.warmth = parseInt(studioWarmth.value, 10);
+        const tag = studioState.warmth <= 650 ? 'Ultra-suave' : (studioState.warmth <= 1050 ? 'Cálido' : 'Orgánico');
+        studioWarmthVal.textContent = tag + ' (' + studioState.warmth + ' Hz)';
+        if (stFilter && stCtx) stFilter.frequency.setTargetAtTime(studioState.warmth, stCtx.currentTime, 0.08);
+        updatePrompt();
+      });
+
+      studioScale.addEventListener('change', () => {
+        studioState.scale = studioScale.value;
+        updatePrompt();
+      });
+
+      rhythmBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          rhythmBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          studioState.rhythm = btn.getAttribute('data-rhythm');
+          updatePrompt();
+        });
+      });
+
+      document.querySelectorAll('[data-inst-check]').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const k = chk.getAttribute('data-inst-check');
+          studioState.inst[k].on = chk.checked;
+          const card = document.querySelector('.inst-card[data-inst="' + k + '"]');
+          if (card) card.classList.toggle('active', chk.checked);
+          if (k === 'rain') updateRainLayer();
+          updatePrompt();
+        });
+      });
+
+      document.querySelectorAll('[data-inst-vol]').forEach(rng => {
+        rng.addEventListener('input', () => {
+          const k = rng.getAttribute('data-inst-vol');
+          studioState.inst[k].vol = parseFloat(rng.value);
+          if (k === 'rain') updateRainLayer();
+        });
+      });
+
+      studioMasterVol.addEventListener('input', () => {
+        const v = parseFloat(studioMasterVol.value);
+        studioMasterVolVal.textContent = Math.round((v / 0.55) * 100) + '%';
+        if (stMaster && stCtx) stMaster.gain.setTargetAtTime(v, stCtx.currentTime, 0.05);
+      });
+
+      copyPromptBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(studioPromptText.value);
+          copyPromptBtn.textContent = '¡Copiado!';
+          setTimeout(() => { copyPromptBtn.textContent = 'Copiar prompt'; }, 1600);
+        } catch (e) {
+          studioPromptText.select();
+          document.execCommand('copy');
+          copyPromptBtn.textContent = '¡Copiado!';
+          setTimeout(() => { copyPromptBtn.textContent = 'Copiar prompt'; }, 1600);
+        }
+      });
+
+      updatePrompt();
+    })();
+  </script>
+</body>
+</html>
