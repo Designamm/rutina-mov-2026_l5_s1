@@ -1,10 +1,3 @@
-﻿No tengo una herramienta para enviarte un archivo descargable de código HTML directamente desde este chat, pero el código completo de la v7 ya está generado y podés copiarlo o guardarlo en 1 minuto.
-Cómo guardarlo en tu computadora
-1. Copiá todo el bloque de código que aparece abajo.
-2. Abrí el Bloc de notas (en Windows) o TextEdit (en Mac).
-3. Pegá el código y guardalo como index.html (elegí "Todos los archivos" en el tipo de archivo para que no se guarde como index.html.txt).
-4. Subí ese index.html a la raíz de tu repositorio en GitHub.
-Código completo (v7 · El Jardín de los Dioses)
 <!DOCTYPE html>
 <html lang="es">
 <head>
