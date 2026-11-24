@@ -1,1 +1,0 @@
-# rutina-mov-2026_l5_s1
