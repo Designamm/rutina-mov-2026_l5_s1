@@ -10,82 +10,218 @@
   <title>Guía de Estabilización Lumbar — Fusión L5–S1</title>
   <style>
     :root {
-      --bg: #f6f8fa;
-      --surface: #ffffff;
-      --surface-alt: #f0f4f8;
-      --primary: #1e3a5f;
-      --primary-light: #2d5a8c;
-      --accent: #0f766e;
-      --accent-soft: #e6f4f1;
-      --warn-bg: #fff8eb;
-      --warn-border: #d97706;
-      --warn-text: #78350f;
-      --text: #1f2937;
-      --muted: #52606d;
-      --border: #dce3eb;
-      --radius: 14px;
-      --shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+      --bg: #070b14;
+      --bg-elevated: rgba(15, 23, 42, 0.72);
+      --surface: rgba(17, 25, 40, 0.68);
+      --surface-solid: #0f172a;
+      --surface-alt: rgba(30, 41, 59, 0.55);
+      --primary: #38bdf8;
+      --primary-deep: #0284c7;
+      --accent: #2dd4bf;
+      --accent-glow: rgba(45, 212, 191, 0.35);
+      --purple-glow: rgba(129, 140, 248, 0.25);
+      --warn-bg: rgba(245, 158, 11, 0.12);
+      --warn-border: #f59e0b;
+      --warn-text: #fde68a;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.16);
+      --border-bright: rgba(56, 189, 248, 0.38);
+      --radius: 18px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding-bottom: 90px;
+      padding-bottom: 110px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Ambient Aurora Orbs (Claude / Artifact Reels style) */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0%, #0d192e 0%, #070b14 70%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.45;
+      animation: floatOrb 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle, #0d9488, transparent 70%);
+      top: -120px; left: -100px;
+    }
+
+    .orb-2 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, #0284c7, transparent 70%);
+      top: 25%; right: -160px;
+      animation-delay: -6s;
+      animation-duration: 22s;
+    }
+
+    .orb-3 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, #4f46e5, transparent 70%);
+      bottom: -100px; left: 20%;
+      animation-delay: -12s;
+      animation-duration: 25s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.08); }
+      100% { transform: translate(-25px, 35px) scale(0.95); }
+    }
+
+    /* Scroll Progress Top Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent), #818cf8);
+      z-index: 1000;
+      box-shadow: 0 0 12px var(--accent-glow);
+      transition: width 0.1s linear;
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary) 0%, #152943 100%);
-      color: #fff;
-      padding: 36px 20px 32px;
+      position: relative;
+      padding: 46px 20px 36px;
       text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(7, 11, 20, 0.4) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .header-inner {
-      max-width: 880px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.22);
-      padding: 4px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(45, 212, 191, 0.12);
+      border: 1px solid rgba(45, 212, 191, 0.32);
+      color: var(--accent);
+      padding: 5px 14px;
       border-radius: 999px;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 0 20px rgba(45, 212, 191, 0.15);
+    }
+
+    .pulse-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7);
+      animation: pulseRing 2s infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(45, 212, 191, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
     }
 
     header h1 {
-      font-size: clamp(1.6rem, 4vw, 2.25rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 10px;
+      font-size: clamp(1.85rem, 4.5vw, 2.7rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #bae6fd 50%, #5eead4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
     }
 
     header p {
-      color: #cbd5e1;
+      color: var(--muted);
       max-width: 660px;
       margin: 0 auto;
-      font-size: 0.98rem;
+      font-size: 1rem;
     }
 
     .container {
-      max-width: 880px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 22px 16px;
+      padding: 24px 16px;
+    }
+
+    /* Glassmorphism Cards & Spotlight Hover */
+    .glass-card {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(56, 189, 248, 0.09), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover::before { opacity: 1; }
+    .glass-card:hover {
+      border-color: var(--border-bright);
+      box-shadow: 0 16px 48px rgba(2, 132, 199, 0.16);
+    }
+
+    /* Scroll Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     .alert-box {
       background: var(--warn-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 158, 11, 0.3);
       border-left: 4px solid var(--warn-border);
-      border-radius: 10px;
-      padding: 16px 18px;
+      border-radius: 14px;
+      padding: 16px 20px;
       margin-bottom: 22px;
       color: var(--warn-text);
       font-size: 0.93rem;
@@ -94,14 +230,15 @@
     .alert-box strong {
       display: block;
       margin-bottom: 4px;
-      font-size: 0.98rem;
+      font-size: 1rem;
+      color: #fbbf24;
     }
 
     .tools-bar {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
     @media (max-width: 680px) {
@@ -109,20 +246,16 @@
     }
 
     .tool-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 18px;
-      box-shadow: var(--shadow);
+      padding: 18px 20px;
     }
 
     .tool-title {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       color: var(--muted);
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -130,72 +263,132 @@
       flex-wrap: wrap;
     }
 
+    /* Circular Animated SVG Timer */
+    .timer-layout {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .timer-ring-wrap {
+      position: relative;
+      width: 84px;
+      height: 84px;
+      flex-shrink: 0;
+    }
+
+    .timer-ring-svg {
+      transform: rotate(-90deg);
+      width: 84px;
+      height: 84px;
+    }
+
+    .timer-ring-bg {
+      fill: none;
+      stroke: rgba(148, 163, 184, 0.15);
+      stroke-width: 6;
+    }
+
+    .timer-ring-progress {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 226.2;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.9s linear, stroke 0.3s ease;
+      filter: drop-shadow(0 0 6px var(--accent-glow));
+    }
+
     .timer-display {
-      font-size: 2.1rem;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
       font-weight: 800;
       font-variant-numeric: tabular-nums;
-      color: var(--primary);
-      line-height: 1;
-      margin-bottom: 10px;
+      color: #fff;
     }
 
     .timer-controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
       align-items: center;
     }
 
     .btn {
       border: none;
-      border-radius: 8px;
-      padding: 8px 13px;
-      font-size: 0.86rem;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
+      transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
-    .btn:active { transform: scale(0.97); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: scale(0.96); }
 
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-primary:hover { background: var(--primary-light); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
+      color: #04121d;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+    }
 
-    .btn-accent { background: var(--accent); color: #fff; }
-    .btn-accent:hover { background: #115e59; }
+    .btn-accent {
+      background: linear-gradient(135deg, #0d9488, var(--accent));
+      color: #031917;
+      font-weight: 700;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
 
     .btn-ghost {
-      background: var(--surface-alt);
+      background: rgba(30, 41, 59, 0.7);
       color: var(--text);
       border: 1px solid var(--border);
     }
-    .btn-ghost:hover { background: #e2e8f0; }
+    .btn-ghost:hover {
+      background: rgba(51, 65, 85, 0.85);
+      border-color: rgba(148, 163, 184, 0.35);
+    }
 
     .btn-pill {
-      padding: 5px 10px;
-      font-size: 0.8rem;
+      padding: 5px 11px;
+      font-size: 0.79rem;
       border-radius: 999px;
     }
     .btn-pill.active {
       background: var(--accent);
-      color: #fff;
+      color: #041e1b;
       border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 0 14px var(--accent-glow);
     }
 
     .progress-track {
       width: 100%;
-      height: 10px;
-      background: var(--surface-alt);
+      height: 11px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
       border-radius: 999px;
       overflow: hidden;
-      margin: 10px 0 8px;
+      margin: 14px 0 10px;
     }
 
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--accent), #14b8a6);
-      transition: width 0.25s ease;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      box-shadow: 0 0 12px var(--accent-glow);
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .progress-meta {
@@ -206,13 +399,9 @@
       align-items: center;
     }
 
-    /* Audio Player Module */
+    /* Audio Player + Live Visualizer Canvas */
     .audio-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      box-shadow: var(--shadow);
+      padding: 20px;
       margin-bottom: 22px;
     }
 
@@ -230,15 +419,26 @@
     .now-playing {
       background: var(--surface-alt);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 13px 15px;
+      border-radius: 14px;
+      padding: 14px 16px;
       margin-bottom: 12px;
+      position: relative;
+    }
+
+    .visualizer-canvas {
+      width: 100%;
+      height: 44px;
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: rgba(7, 11, 20, 0.55);
+      border: 1px solid rgba(56, 189, 248, 0.14);
     }
 
     .track-name {
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--primary);
+      color: #fff;
       margin-bottom: 2px;
       word-break: break-word;
     }
@@ -292,11 +492,11 @@
     .playlist {
       list-style: none;
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      max-height: 210px;
+      max-height: 215px;
       overflow-y: auto;
-      background: #fff;
+      background: rgba(7, 11, 20, 0.6);
     }
 
     .playlist-item {
@@ -304,18 +504,18 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      padding: 9px 12px;
+      padding: 10px 13px;
       border-bottom: 1px solid var(--border);
       font-size: 0.86rem;
       cursor: pointer;
-      transition: background 0.12s;
+      transition: all 0.18s ease;
     }
 
     .playlist-item:last-child { border-bottom: none; }
-    .playlist-item:hover { background: var(--surface-alt); }
+    .playlist-item:hover { background: rgba(56, 189, 248, 0.08); padding-left: 16px; }
     .playlist-item.active {
-      background: var(--accent-soft);
-      color: #134e4a;
+      background: linear-gradient(90deg, rgba(45, 212, 191, 0.18), rgba(56, 189, 248, 0.08));
+      color: var(--accent);
       font-weight: 700;
     }
 
@@ -333,10 +533,10 @@
     }
 
     .playlist-tag {
-      font-size: 0.72rem;
-      padding: 2px 7px;
+      font-size: 0.7rem;
+      padding: 2px 8px;
       border-radius: 999px;
-      background: var(--surface-alt);
+      background: rgba(148, 163, 184, 0.14);
       color: var(--muted);
       flex-shrink: 0;
     }
@@ -344,19 +544,19 @@
     .del-track-btn {
       background: transparent;
       border: none;
-      color: #94a3b8;
+      color: var(--muted);
       cursor: pointer;
       font-size: 0.9rem;
       padding: 2px 6px;
       border-radius: 6px;
     }
-    .del-track-btn:hover { background: #fee2e2; color: #b91c1c; }
+    .del-track-btn:hover { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
 
     .synth-box {
       background: var(--surface-alt);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 15px;
+      border-radius: 14px;
+      padding: 15px;
     }
 
     .synth-box p {
@@ -377,22 +577,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 9px 12px;
-      border-radius: 8px;
+      padding: 10px 13px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      background: #fff;
+      background: rgba(15, 23, 42, 0.75);
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--primary);
-      transition: all 0.15s;
+      color: var(--text);
+      transition: all 0.2s ease;
     }
 
-    .synth-btn:hover { border-color: var(--accent); }
+    .synth-btn:hover { border-color: var(--accent); transform: translateX(3px); }
     .synth-btn.active {
-      background: var(--accent);
-      color: #fff;
+      background: linear-gradient(135deg, #0d9488, var(--accent));
+      color: #031917;
       border-color: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
     }
     .synth-btn span {
       font-size: 0.75rem;
@@ -400,293 +601,10 @@
       opacity: 0.85;
     }
 
-    .gif-tip {
-      background: var(--accent-soft);
-      border: 1px solid #b5dfd7;
-      border-radius: 10px;
-      padding: 13px 16px;
-      margin-bottom: 24px;
-      font-size: 0.88rem;
-      color: #134e4a;
-    }
-
-    .gif-tip code {
-      background: rgba(255,255,255,0.75);
-      padding: 1px 5px;
-      border-radius: 4px;
-      font-size: 0.84rem;
-    }
-
-    .section-heading {
-      font-size: 1.25rem;
-      color: var(--primary);
-      margin: 28px 0 14px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .exercise-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 22px;
-      overflow: hidden;
-    }
-
-    .card-header {
-      padding: 16px 20px;
-      background: var(--surface-alt);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .card-title-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .ex-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.92rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .card-header h2 {
-      font-size: 1.12rem;
-      color: var(--primary);
-      line-height: 1.25;
-    }
-
-    .card-subtitle {
-      font-size: 0.83rem;
-      color: var(--muted);
-    }
-
-    .check-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--primary);
-      cursor: pointer;
-      background: #fff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      user-select: none;
-    }
-
-    .check-label input {
-      width: 16px;
-      height: 16px;
-      accent-color: var(--accent);
-      cursor: pointer;
-    }
-
-    .media-wrap {
-      position: relative;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      padding: 14px 16px 12px;
-    }
-
-    .media-wrap img {
-      width: 100%;
-      max-width: 680px;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .media-bar {
-      max-width: 680px;
-      margin: 10px auto 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .media-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #94a3b8;
-    }
-
-    .dot.gif-active {
-      background: #10b981;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-    }
-
-    .media-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .file-input { display: none; }
-
-    .card-body {
-      padding: 18px 20px 20px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 18px;
-    }
-
-    @media (max-width: 680px) {
-      .card-grid { grid-template-columns: 1fr; }
-    }
-
-    .steps h3, .keys h3 {
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .steps ol {
-      padding-left: 18px;
-      font-size: 0.93rem;
-    }
-
-    .steps li {
-      margin-bottom: 6px;
-    }
-
-    .keys-box {
-      background: var(--surface-alt);
-      border-radius: 10px;
-      padding: 13px 15px;
-      font-size: 0.89rem;
-    }
-
-    .keys-box ul {
-      padding-left: 17px;
-      margin-top: 6px;
-    }
-
-    .keys-box li {
-      margin-bottom: 5px;
-    }
-
-    .dose-tag {
-      display: inline-block;
-      margin-top: 10px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .table-wrap {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow-x: auto;
-      margin-bottom: 24px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.91rem;
-    }
-
-    th, td {
-      padding: 12px 14px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.02em;
-    }
-
-    tr:last-child td { border-bottom: none; }
-    tr:nth-child(even) td { background: #f9fbfd; }
-
-    .habits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .habit-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .habit-card h3 {
-      font-size: 0.97rem;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .habit-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-top: 26px;
-      padding: 0 16px;
-    }
-
     /* Healing Sound Studio */
     .studio-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      box-shadow: var(--shadow);
-      margin-bottom: 22px;
+      padding: 20px;
+      margin-bottom: 24px;
     }
 
     .studio-header {
@@ -695,15 +613,15 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .studio-rules-badge {
-      font-size: 0.76rem;
-      background: var(--accent-soft);
-      color: #134e4a;
-      border: 1px solid #b5dfd7;
-      padding: 4px 10px;
+      font-size: 0.75rem;
+      background: rgba(45, 212, 191, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      padding: 4px 11px;
       border-radius: 999px;
       font-weight: 600;
     }
@@ -714,9 +632,9 @@
       gap: 12px;
       background: var(--surface-alt);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 13px 15px;
-      margin-bottom: 14px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 15px;
     }
 
     .studio-param label {
@@ -725,7 +643,7 @@
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .studio-param input[type="range"], .studio-param select {
@@ -734,10 +652,10 @@
     }
 
     .studio-param select {
-      padding: 6px 8px;
-      border-radius: 7px;
+      padding: 7px 9px;
+      border-radius: 8px;
       border: 1px solid var(--border);
-      background: #fff;
+      background: #0f172a;
       color: var(--text);
       font-size: 0.84rem;
     }
@@ -746,26 +664,28 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
     }
 
     .rhythm-btn {
-      padding: 8px 13px;
+      padding: 8px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: var(--surface-alt);
-      color: var(--primary);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text);
       font-size: 0.83rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.18s ease;
     }
 
-    .rhythm-btn:hover { border-color: var(--accent); }
+    .rhythm-btn:hover { border-color: var(--primary); }
     .rhythm-btn.active {
-      background: var(--primary);
-      color: #fff;
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
+      color: #04121d;
       border-color: var(--primary);
+      font-weight: 700;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
     }
 
     .inst-grid {
@@ -777,15 +697,16 @@
 
     .inst-card {
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 11px 13px;
-      background: #fff;
-      transition: border-color 0.15s, background 0.15s;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.6);
+      transition: all 0.2s ease;
     }
 
     .inst-card.active {
-      border-color: var(--accent);
-      background: #f4fbf9;
+      border-color: rgba(45, 212, 191, 0.45);
+      background: rgba(45, 212, 191, 0.08);
+      box-shadow: 0 4px 18px rgba(45, 212, 191, 0.1);
     }
 
     .inst-top {
@@ -799,10 +720,10 @@
     .inst-toggle {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       font-size: 0.86rem;
       font-weight: 700;
-      color: var(--primary);
+      color: #fff;
       cursor: pointer;
       user-select: none;
     }
@@ -817,7 +738,7 @@
     .inst-desc {
       font-size: 0.76rem;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
     .inst-vol {
@@ -836,50 +757,397 @@
     }
 
     .studio-prompt-box {
-      background: #f8fafc;
-      border: 1px dashed #94a3b8;
-      border-radius: 10px;
-      padding: 12px 14px;
+      background: rgba(7, 11, 20, 0.65);
+      border: 1px dashed rgba(148, 163, 184, 0.35);
+      border-radius: 12px;
+      padding: 13px 15px;
     }
 
     .studio-prompt-box label {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.79rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
     .studio-prompt-text {
       width: 100%;
       min-height: 92px;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 9px 11px;
+      border-radius: 9px;
+      padding: 10px 12px;
       font-family: inherit;
       font-size: 0.83rem;
       color: var(--text);
-      background: #fff;
+      background: rgba(15, 23, 42, 0.9);
       resize: vertical;
       line-height: 1.45;
     }
 
+    .gif-tip {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: #bae6fd;
+    }
+
+    .gif-tip code {
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--accent);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.83rem;
+    }
+
+    .section-heading {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-heading::before {
+      content: "";
+      width: 4px;
+      height: 20px;
+      border-radius: 4px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+    }
+
+    .exercise-card {
+      margin-bottom: 24px;
+      transform-style: preserve-3d;
+    }
+
+    .exercise-card.completed-card {
+      border-color: rgba(45, 212, 191, 0.5);
+    }
+
+    .card-header {
+      padding: 16px 20px;
+      background: rgba(30, 41, 59, 0.45);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .ex-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-deep), var(--accent));
+      color: #04121d;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+    }
+
+    .card-header h2 {
+      font-size: 1.14rem;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .card-subtitle {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .check-label:hover { border-color: var(--accent); }
+
+    .check-label input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .media-wrap {
+      position: relative;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 14px 16px 12px;
+    }
+
+    .media-wrap img {
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .media-bar {
+      max-width: 680px;
+      margin: 10px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #475569;
+    }
+
+    .media-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .dot.gif-active {
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    }
+
+    .media-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .file-input { display: none; }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 680px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    .steps h3, .keys h3 {
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 9px;
+    }
+
+    .steps ol {
+      padding-left: 18px;
+      font-size: 0.94rem;
+      color: #e2e8f0;
+    }
+
+    .steps li {
+      margin-bottom: 7px;
+    }
+
+    .keys-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.89rem;
+      color: #cbd5e1;
+    }
+
+    .keys-box ul {
+      padding-left: 17px;
+      margin-top: 6px;
+    }
+
+    .keys-box li {
+      margin-bottom: 6px;
+    }
+
+    .dose-tag {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(45, 212, 191, 0.14);
+      border: 1px solid rgba(45, 212, 191, 0.32);
+      border-radius: 8px;
+      padding: 6px 11px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+    }
+
+    th, td {
+      padding: 13px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(30, 41, 59, 0.85);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(56, 189, 248, 0.05); }
+
+    .habits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .habit-card {
+      padding: 18px;
+    }
+
+    .habit-card h3 {
+      font-size: 0.98rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .habit-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 30px;
+      padding: 0 16px;
+    }
+
+    /* Floating Dynamic Dock (always accessible while doing exercises) */
+    .floating-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 900;
+      background: rgba(15, 23, 42, 0.86);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-bright);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 20px rgba(56, 189, 248, 0.15);
+      border-radius: 999px;
+      padding: 7px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: calc(100vw - 24px);
+    }
+
+    .dock-timer {
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      font-size: 0.95rem;
+      min-width: 44px;
+      text-align: center;
+    }
+
+    .dock-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border);
+    }
+
+    .dock-track {
+      font-size: 0.8rem;
+      color: var(--text);
+      max-width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 480px) {
+      .dock-track { max-width: 105px; }
+    }
+
     @media print {
-      .tools-bar, .audio-panel, .studio-panel, .gif-tip, .media-bar, .check-label { display: none !important; }
-      body { background: #fff; padding-bottom: 0; }
-      .exercise-card, .table-wrap, .habit-card { box-shadow: none; break-inside: avoid; }
+      .ambient-bg, .scroll-progress, .floating-dock, .tools-bar, .audio-panel, .studio-panel, .gif-tip, .media-bar, .check-label { display: none !important; }
+      body { background: #fff; color: #000; padding-bottom: 0; }
+      .glass-card { background: #fff; border: 1px solid #ccc; box-shadow: none; break-inside: avoid; }
     }
   </style>
 </head>
 <body>
 
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <header>
     <div class="header-inner">
-      <span class="badge">Rutina en casa · 10 a 15 minutos · Audio terapéutico integrado</span>
+      <span class="badge"><span class="pulse-dot"></span> Rutina en casa · 10 a 15 min · Audio terapéutico</span>
       <h1>Guía de Estabilización Lumbar</h1>
       <p>Protocolo de fortalecimiento del core profundo (McGill Big 3 + descarga 90–90) adaptado para proteger el segmento L4–L5 en columnas con fusión L5–S1.</p>
     </div>
@@ -887,31 +1155,39 @@
 
   <main class="container">
 
-    <div class="alert-box">
+    <div class="alert-box reveal">
       <strong>Regla de oro antes de empezar</strong>
       No realices los ejercicios de fuerza durante una crisis aguda de ciática ni con dolor eléctrico al toser o estornudar. Durante la fase aguda usá únicamente la <b>Posición de Descarga 90–90</b> acompañada de audio suave a volumen bajo. Una vez que ceda el dolor, iniciá la rutina de forma gradual: ningún ejercicio debe provocar puntadas, hormigueo ni dolor irradiado hacia la pierna.
     </div>
 
     <!-- Interactive Tools -->
     <section class="tools-bar">
-      <div class="tool-card">
+      <div class="tool-card glass-card reveal">
         <div class="tool-title">
           <span>Cronómetro isométrico</span>
-          <label style="font-weight:500; text-transform:none; cursor:pointer;">
-            <input type="checkbox" id="soundToggle" checked style="accent-color:#0f766e;" /> Aviso sonoro
+          <label style="font-weight:500; text-transform:none; cursor:pointer; color:var(--text);">
+            <input type="checkbox" id="soundToggle" checked style="accent-color:#2dd4bf;" /> Aviso sonoro
           </label>
         </div>
-        <div class="timer-display" id="timerDisplay">10 s</div>
-        <div class="timer-controls">
-          <button class="btn btn-primary" id="startBtn" type="button">Iniciar</button>
-          <button class="btn btn-ghost" id="resetBtn" type="button">Reiniciar</button>
-          <button class="btn btn-ghost btn-pill" data-sec="8" type="button">8s</button>
-          <button class="btn btn-ghost btn-pill active" data-sec="10" type="button">10s</button>
-          <button class="btn btn-ghost btn-pill" data-sec="15" type="button">15s</button>
+        <div class="timer-layout">
+          <div class="timer-ring-wrap">
+            <svg class="timer-ring-svg" viewBox="0 0 84 84">
+              <circle class="timer-ring-bg" cx="42" cy="42" r="36"></circle>
+              <circle class="timer-ring-progress" id="timerRing" cx="42" cy="42" r="36"></circle>
+            </svg>
+            <div class="timer-display" id="timerDisplay">10s</div>
+          </div>
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="startBtn" type="button">Iniciar</button>
+            <button class="btn btn-ghost" id="resetBtn" type="button">Reiniciar</button>
+            <button class="btn btn-ghost btn-pill" data-sec="8" type="button">8s</button>
+            <button class="btn btn-ghost btn-pill active" data-sec="10" type="button">10s</button>
+            <button class="btn btn-ghost btn-pill" data-sec="15" type="button">15s</button>
+          </div>
         </div>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card glass-card reveal">
         <div class="tool-title">
           <span>Progreso de la sesión de hoy</span>
           <button class="btn btn-ghost btn-pill" id="clearProgressBtn" type="button">Limpiar</button>
@@ -921,13 +1197,13 @@
         </div>
         <div class="progress-meta">
           <span id="progressText">0 de 4 bloques completados</span>
-          <span id="progressPct" style="font-weight:700; color:#0f766e;">0%</span>
+          <span id="progressPct" style="font-weight:800; color:var(--accent);">0%</span>
         </div>
       </div>
     </section>
 
     <!-- Sound & Music Therapy Player -->
-    <section class="audio-panel" aria-label="Reproductor de audio terapéutico">
+    <section class="audio-panel glass-card reveal" aria-label="Reproductor de audio terapéutico">
       <div class="tool-title">
         <span>Reproductor de Audio Terapéutico (Volumen bajo recomendado)</span>
         <div style="display:flex; gap:8px; align-items:center;">
@@ -937,9 +1213,9 @@
       </div>
 
       <div class="audio-grid">
-        <!-- Playlist & Audio Element -->
         <div>
           <div class="now-playing">
+            <canvas id="visualizerCanvas" class="visualizer-canvas" width="480" height="44"></canvas>
             <div class="track-name" id="currentTrackTitle">Sin tema seleccionado</div>
             <div class="track-sub" id="currentTrackMeta">Cargá tus temas con "+ Agregar temas" o subilos a la carpeta audio/ en GitHub</div>
             <div class="seek-row">
@@ -966,7 +1242,6 @@
           <ul class="playlist" id="playlistEl"></ul>
         </div>
 
-        <!-- Built-in Offline Soundscapes (Web Audio API) -->
         <div class="synth-box">
           <div class="tool-title" style="margin-bottom:6px;">
             <span>Sonidos de alivio integrados (sin archivos)</span>
@@ -995,8 +1270,8 @@
       </div>
     </section>
 
-    <!-- Healing Sound Studio (Interactive Mixer + Prompt Builder) -->
-    <section class="studio-panel" aria-label="Estudio de sonido curativo">
+    <!-- Healing Sound Studio -->
+    <section class="studio-panel glass-card reveal" aria-label="Estudio de sonido curativo">
       <div class="studio-header">
         <div>
           <div class="tool-title" style="margin-bottom:2px;">
@@ -1110,14 +1385,14 @@
       </div>
     </section>
 
-    <div class="gif-tip">
+    <div class="gif-tip reveal">
       <b>Archivos en GitHub:</b> Asegurate de tener los 4 GIFs en la raíz (<code>descarga_90_90.gif</code>, <code>abdominal_modificado.gif</code>, <code>plancha_lateral.gif</code>, <code>perro_pajaro.gif</code>) y los 5 audios dentro de la carpeta <code>audio/</code>. También podés cargar temas desde tu celular con el botón <b>"+ Agregar temas"</b>.
     </div>
 
-    <h2 class="section-heading">Bloque 0 · Alivio y Descompresión</h2>
+    <h2 class="section-heading reveal">Bloque 0 · Alivio y Descompresión</h2>
 
     <!-- Exercise 1: Psoas 90-90 -->
-    <article class="exercise-card">
+    <article class="exercise-card glass-card reveal" data-card-id="ex1">
       <div class="card-header">
         <div class="card-title-group">
           <div class="ex-num">1</div>
@@ -1167,10 +1442,10 @@
       </div>
     </article>
 
-    <h2 class="section-heading">Bloque Principal · Estabilización del Core (McGill Big 3)</h2>
+    <h2 class="section-heading reveal">Bloque Principal · Estabilización del Core (McGill Big 3)</h2>
 
     <!-- Exercise 2: Curl-Up -->
-    <article class="exercise-card">
+    <article class="exercise-card glass-card reveal" data-card-id="ex2">
       <div class="card-header">
         <div class="card-title-group">
           <div class="ex-num">2</div>
@@ -1222,7 +1497,7 @@
     </article>
 
     <!-- Exercise 3: Side Plank -->
-    <article class="exercise-card">
+    <article class="exercise-card glass-card reveal" data-card-id="ex3">
       <div class="card-header">
         <div class="card-title-group">
           <div class="ex-num">3</div>
@@ -1274,7 +1549,7 @@
     </article>
 
     <!-- Exercise 4: Bird-Dog -->
-    <article class="exercise-card">
+    <article class="exercise-card glass-card reveal" data-card-id="ex4">
       <div class="card-header">
         <div class="card-title-group">
           <div class="ex-num">4</div>
@@ -1325,8 +1600,8 @@
       </div>
     </article>
 
-    <h2 class="section-heading">Progresión Recomendada (Pirámide Invertida)</h2>
-    <div class="table-wrap">
+    <h2 class="section-heading reveal">Progresión Recomendada (Pirámide Invertida)</h2>
+    <div class="table-wrap glass-card reveal">
       <table>
         <thead>
           <tr>
@@ -1363,21 +1638,21 @@
       </table>
     </div>
 
-    <h2 class="section-heading">Hábitos Diarios para Proteger el Nivel L4–L5</h2>
+    <h2 class="section-heading reveal">Hábitos Diarios para Proteger el Nivel L4–L5</h2>
     <div class="habits-grid">
-      <div class="habit-card">
+      <div class="habit-card glass-card reveal">
         <h3>Cortá las horas de silla</h3>
         <p>Levantate cada 30 a 40 minutos a caminar 2 minutos. Estar sentado concentra mucha más presión en L4–L5 que estar de pie.</p>
       </div>
-      <div class="habit-card">
+      <div class="habit-card glass-card reveal">
         <h3>Caminata a paso firme</h3>
         <p>Caminar 15 a 20 minutos a buen ritmo con braceo natural lubrica y descomprime los discos lumbares mejor que cualquier estiramiento.</p>
       </div>
-      <div class="habit-card">
+      <div class="habit-card glass-card reveal">
         <h3>Técnica al toser o estornudar</h3>
         <p>Parate derecho, apoyá una mano firme en la lumbar o una mesa y mirá levemente hacia arriba. Nunca te encorves hacia adelante.</p>
       </div>
-      <div class="habit-card">
+      <div class="habit-card glass-card reveal">
         <h3>Evitá torsiones bruscas</h3>
         <p>Con fusión L5–S1 evitá estiramientos profundos de ciática, giros forzados de tronco o levantar peso doblando la cintura.</p>
       </div>
@@ -1388,9 +1663,46 @@
     </footer>
   </main>
 
+  <!-- Floating Dynamic Mini-Dock -->
+  <div class="floating-dock" aria-label="Control rápido flotante">
+    <span class="dock-timer" id="dockTimer">10s</span>
+    <button class="btn btn-primary btn-pill" id="dockTimerBtn" type="button">▶ Timer</button>
+    <div class="dock-divider"></div>
+    <button class="btn btn-accent btn-pill" id="dockAudioBtn" type="button">▶ Audio</button>
+    <span class="dock-track" id="dockTrack">Tema 01</span>
+  </div>
+
   <script>
     (() => {
       'use strict';
+
+      // =========================================================================
+      // 0. DYNAMIC REELS UI EFFECTS (Spotlight, Scroll Reveal, Progress Bar)
+      // =========================================================================
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+        scrollProgress.style.width = pct + '%';
+      }, { passive: true });
+
+      document.querySelectorAll('.glass-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+        }, { passive: true });
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
       // =========================================================================
       // CONFIGURACIÓN DE TEMAS EN GITHUB
@@ -1478,7 +1790,7 @@
         } catch (e) {}
       }
 
-      // --- 2. GIF Loader (4 exercises) ---
+      // --- 2. GIF Loader ---
       function setMediaState(key, isActive, sourceLabel) {
         const status = document.getElementById('status-' + key);
         const dot = status.querySelector('.dot');
@@ -1551,7 +1863,7 @@
 
       initGifs();
 
-      // --- 3. Music Playlist Player ---
+      // --- 3. Music Playlist Player + Reactive Spectrum Visualizer ---
       const audioEl = document.getElementById('audioEl');
       const playlistEl = document.getElementById('playlistEl');
       const currentTrackTitle = document.getElementById('currentTrackTitle');
@@ -1567,12 +1879,54 @@
       const playerVolLabel = document.getElementById('playerVolLabel');
       const audioUploadInput = document.getElementById('audioUploadInput');
       const addTracksBtn = document.getElementById('addTracksBtn');
+      const dockAudioBtn = document.getElementById('dockAudioBtn');
+      const dockTrack = document.getElementById('dockTrack');
+      const visCanvas = document.getElementById('visualizerCanvas');
+      const visCtx = visCanvas.getContext('2d');
 
       let tracks = [];
       let currentIndex = -1;
       let loopSingle = true;
       audioEl.volume = 0.35;
       audioEl.loop = true;
+
+      // Smooth Animated Waveform Visualizer
+      let visPhase = 0;
+      function drawVisualizer() {
+        const w = visCanvas.width;
+        const h = visCanvas.height;
+        visCtx.clearRect(0, 0, w, h);
+        const isPlaying = !audioEl.paused || studioState.playing || activeSynthMode !== null;
+        const bars = 48;
+        const barW = (w / bars) - 3;
+        visPhase += isPlaying ? 0.08 : 0.015;
+
+        for (let i = 0; i < bars; i++) {
+          const norm = i / bars;
+          const wave = isPlaying
+            ? (Math.sin(visPhase + i * 0.35) * 0.4 + Math.cos(visPhase * 0.7 - i * 0.2) * 0.35 + 0.45)
+            : (Math.sin(visPhase + i * 0.25) * 0.08 + 0.14);
+          const barH = Math.max(4, wave * (h - 10));
+          const x = i * (barW + 3) + 2;
+          const y = (h - barH) / 2;
+
+          const grad = visCtx.createLinearGradient(0, y, 0, y + barH);
+          grad.addColorStop(0, '#38bdf8');
+          grad.addColorStop(1, '#2dd4bf');
+          visCtx.fillStyle = isPlaying ? grad : 'rgba(148, 163, 184, 0.28)';
+          visCtx.beginPath();
+          visCtx.roundRect(x, y, barW, barH, 3);
+          visCtx.fill();
+        }
+        requestAnimationFrame(drawVisualizer);
+      }
+      drawVisualizer();
+
+      function syncPlayButtons() {
+        const playing = !audioEl.paused;
+        playPauseBtn.textContent = playing ? '⏸ Pausar' : '▶ Reproducir';
+        dockAudioBtn.textContent = playing ? '⏸ Audio' : '▶ Audio';
+      }
 
       function formatTime(sec) {
         if (!isFinite(sec) || sec < 0) return '0:00';
@@ -1626,8 +1980,9 @@
                 audioEl.removeAttribute('src');
                 currentIndex = -1;
                 currentTrackTitle.textContent = 'Sin tema seleccionado';
+                dockTrack.textContent = 'Sin tema';
                 currentTrackMeta.textContent = 'Elegí otro tema de la lista';
-                playPauseBtn.textContent = '▶ Reproducir';
+                syncPlayButtons();
               } else if (currentIndex > idx) {
                 currentIndex--;
               }
@@ -1648,14 +2003,15 @@
         audioEl.src = t.objectUrl || t.src;
         audioEl.load();
         currentTrackTitle.textContent = t.title;
+        dockTrack.textContent = t.title;
         currentTrackMeta.textContent = t.local ? 'Guardado localmente (offline)' : 'Archivo del repositorio (' + t.src + ')';
         renderPlaylist();
         if (autoPlay) {
           audioEl.play().then(() => {
-            playPauseBtn.textContent = '⏸ Pausar';
-          }).catch((err) => {
+            syncPlayButtons();
+          }).catch(() => {
             currentTrackMeta.textContent = 'No se pudo cargar "' + t.src + '". Revisá que esté en la carpeta audio/ de GitHub.';
-            playPauseBtn.textContent = '▶ Reproducir';
+            syncPlayButtons();
           });
         }
       }
@@ -1697,23 +2053,26 @@
         selectTrack(0, true);
       });
 
-      playPauseBtn.addEventListener('click', () => {
+      function toggleAudioPlay() {
         if (currentIndex === -1 && tracks.length > 0) {
           selectTrack(0, true);
           return;
         }
         if (audioEl.paused) {
           audioEl.play().then(() => {
-            playPauseBtn.textContent = '⏸ Pausar';
+            syncPlayButtons();
           }).catch(() => {
             const t = tracks[currentIndex];
             currentTrackMeta.textContent = 'No se encontró "' + (t ? t.src : '') + '". Revisá la carpeta audio/ en GitHub.';
           });
         } else {
           audioEl.pause();
-          playPauseBtn.textContent = '▶ Reproducir';
+          syncPlayButtons();
         }
-      });
+      }
+
+      playPauseBtn.addEventListener('click', toggleAudioPlay);
+      dockAudioBtn.addEventListener('click', toggleAudioPlay);
 
       prevTrackBtn.addEventListener('click', () => {
         if (!tracks.length) return;
@@ -1738,7 +2097,7 @@
         if (!loopSingle && tracks.length > 1) {
           selectTrack((currentIndex + 1) % tracks.length, true);
         } else {
-          playPauseBtn.textContent = '▶ Reproducir';
+          syncPlayButtons();
         }
       });
 
@@ -1870,15 +2229,19 @@
         }
       });
 
-      // --- 5. Isometric Timer with soft Web Audio beep ---
+      // --- 5. Circular Isometric Timer + Floating Dock Sync ---
       let targetSeconds = 10;
       let remaining = 10;
       let timerId = null;
+      const CIRCUMFERENCE = 226.2;
 
       const timerDisplay = document.getElementById('timerDisplay');
+      const timerRing = document.getElementById('timerRing');
       const startBtn = document.getElementById('startBtn');
       const resetBtn = document.getElementById('resetBtn');
       const soundToggle = document.getElementById('soundToggle');
+      const dockTimer = document.getElementById('dockTimer');
+      const dockTimerBtn = document.getElementById('dockTimerBtn');
 
       function beep(freq = 660, duration = 0.16) {
         if (!soundToggle.checked) return;
@@ -1898,16 +2261,20 @@
       }
 
       function updateTimerUI() {
-        timerDisplay.textContent = remaining + ' s';
-        timerDisplay.style.color = remaining === 0 ? '#0f766e' : '#1e3a5f';
+        timerDisplay.textContent = remaining + 's';
+        dockTimer.textContent = remaining + 's';
+        const ratio = targetSeconds > 0 ? (remaining / targetSeconds) : 0;
+        timerRing.style.strokeDashoffset = CIRCUMFERENCE * (1 - ratio);
+        timerRing.style.stroke = remaining === 0 ? '#38bdf8' : '#2dd4bf';
       }
 
       function stopTimer() {
         if (timerId) { clearInterval(timerId); timerId = null; }
         startBtn.textContent = 'Iniciar';
+        dockTimerBtn.textContent = '▶ Timer';
       }
 
-      startBtn.addEventListener('click', () => {
+      function toggleTimer() {
         if (timerId) {
           stopTimer();
           return;
@@ -1915,6 +2282,7 @@
         if (remaining === 0) remaining = targetSeconds;
         beep(520, 0.09);
         startBtn.textContent = 'Pausar';
+        dockTimerBtn.textContent = '⏸ Pausar';
         updateTimerUI();
         timerId = setInterval(() => {
           remaining--;
@@ -1925,7 +2293,10 @@
             setTimeout(() => beep(1046, 0.25), 220);
           }
         }, 1000);
-      });
+      }
+
+      startBtn.addEventListener('click', toggleTimer);
+      dockTimerBtn.addEventListener('click', toggleTimer);
 
       resetBtn.addEventListener('click', () => {
         stopTimer();
@@ -1956,6 +2327,8 @@
         checks.forEach(c => {
           if (c.checked) done++;
           state[c.dataset.id] = c.checked;
+          const card = document.querySelector('[data-card-id="' + c.dataset.id + '"]');
+          if (card) card.classList.toggle('completed-card', c.checked);
         });
         const pct = Math.round((done / checks.length) * 100);
         progressFill.style.width = pct + '%';
